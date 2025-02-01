@@ -32,30 +32,13 @@ jobs:
       run: |
         git config --local user.email "actions@github.com"
         git config --local user.name "GitHub Actions"
-        git add Korea.m3u
-        if ! git diff --quiet && ! git diff --staged --quiet; then
-          git commit -m "自动更新: 更新KBS和MBN播放链接"
+        git add -A
+        git status
+        if git diff --staged --quiet; then
+          echo "No changes detected"
+          echo "changes=false" >> $GITHUB_OUTPUT
+        else
+          git commit -m "自动更新: 更新韩国频道播放链接"
           git push
           echo "changes=true" >> $GITHUB_OUTPUT
-        else
-          echo "changes=false" >> $GITHUB_OUTPUT
         fi
-    
-    - name: Get current date
-      id: date
-      if: steps.commit.outputs.changes == 'true'
-      run: echo "date=$(date +'%Y%m%d')" >> $GITHUB_OUTPUT
-    
-    - name: Create Release
-      if: steps.commit.outputs.changes == 'true'
-      uses: softprops/action-gh-release@v1
-      with:
-        name: Release ${{ steps.date.outputs.date }}
-        tag_name: v${{ steps.date.outputs.date }}
-        files: Korea.m3u
-        body: |
-          自动更新发布 - ${{ steps.date.outputs.date }}
-          
-          此版本包含最新的KBS和MBN播放链接更新。
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
