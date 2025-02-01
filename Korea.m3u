@@ -1,6 +1,6 @@
 #EXTM3U
 #EXTINF:-1 tvg-id="MBNKR" tvg-name="MBN" tvg-logo="Logo URL" group-title="韩国频道",MBN
-http://hls-live.mbn.co.kr/mbn-on-air/600k/playlist.m3u8?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cCo6Ly9obHMtbGl2ZS5tYm4uY28ua3IvKiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczODIxODU3Nn0sIklwQWRkcmVzcyI6eyJBV1M6U291cmNlSXAiOiIwLjAuMC4wLzAifX19XX0_&Signature=bdGEsG~JnlS17ZLIcIgihSljjsxWlukP-xCDK-NoA2-s2g1eun4DiSUXAx6HCxQt4EyDKUsBkBcdp-LZX5AeCqN6xOMB67XvCGR0zC~nCx~Q1W15J2t-K4hLCIdM~lB1EaUYNpABOabwM9~v73Ovvb8pQggYjYyRktbr1lsSbW8_&Key-Pair-Id=pub_hls-live.mbn.co.kr
+https://hls-live.mbn.co.kr/mbn-on-air/600k/playlist.m3u8?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cCo6Ly9obHMtbGl2ZS5tYm4uY28ua3IvKiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczODQ3MTQzMX0sIklwQWRkcmVzcyI6eyJBV1M6U291cmNlSXAiOiIwLjAuMC4wLzAifX19XX0_&Signature=Enu0e8Uh8VE2JLLxWJJ69lL5r5SeW-2sKKOLCYiliU64N5fR5L-gE5te0EozVRlQZZZNjQ4L~xxm0pxaceO0pQS7mUjy8Pb10o-nyWq4Luda9ZH3BeujPvA8VN5bPxMJIn1cV84dyw690JygSzFKoN1vHL8-giyL1WN99h0lpIE_&Key-Pair-Id=pub_hls-live.mbn.co.kr
 #EXTINF:-1 tvg-id="NBSKR" tvg-name="NBS" tvg-logoLogo URL" group-title="韩国频道",NBS
 https://media.joycorp.co.kr:4443/live/live_720p/playlist.m3u8
 #EXTINF:-1 tvg-id="MBCKR" tvg-name="MBC" tvg-logo="Logo URL" group-title="韩国频道",MBC
@@ -8,6 +8,6 @@ https://ns1.tjmbc.co.kr/live/myStream.sdp/playlist.m3u8
 #EXTINF:-1 tvg-id="TBSKR" tvg-name="TBS" tvg-logo="Logo URL" group-title="韩国频道",TBS
 https://cdntv.tbs.seoul.kr/tbs/_definst_/tbs_tv_web_720.smil/playlist.m3u8
 #EXTINF:-1 tvg-id="KBS1TV.kr" tvg-name="KBS 1TV" tvg-logo="Logo URL" group-title="韩国频道",KBS 1TV
-https://1tv.gscdn.kbs.co.kr/1tv_3.m3u8
+https://1tv.gscdn.kbs.co.kr/1tv_3.m3u8?Expires=1738557830&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly8xdHYuZ3NjZG4ua2JzLmNvLmtyLzF0dl8zLm0zdTgiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3Mzg1NTc4MzB9fX1dfQ__&Signature=T8qA92ockm5aiYGks03CLnj0Pf67lUw5oCZLEUQRCoBc96ECTf~kyPZ1MVYixw3u7CfwSBkEH0YbYJIrluLMdXDutLr8foaM5FJTfaBsnKQUtgZuCx4B8yGArpCnaCKIsY5hebtBNE3w0SxWRTRzsjT8J28t4BNmeNW6xmyOE8iX9xxcrGu4RLL3NCGZZ08zK500XUyNi1kVuR5Xlnh4v4MOGz0LOB6bFhJJFqFlNEME~M9VREp1JLY~nh1lpMXGQ-0gS3ViSMadF1aKMkAdWXBI72OD~gg-NE~gAgclKdiStC2x6d9u460zx6AyxwmMuXwGSMEfd13y3SQoCkM9eA__&Key-Pair-Id=APKAICDSGT3Y7IXGJ3TA
 #EXTINF:-1 tvg-id="KBS2TV.kr" tvg-name="KBS 2TV" tvg-logo="https://example.com/kbs2_logo.png" group-title="韩国频道",KBS 2TV
-https://2tv.gscdn.kbs.co.kr/2tv_1.m3u8
+https://2tv.gscdn.kbs.co.kr/2tv_1.m3u8?Expires=1738557819&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly8ydHYuZ3NjZG4ua2JzLmNvLmtyLzJ0dl8xLm0zdTgiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3Mzg1NTc4MTl9fX1dfQ__&Signature=cQdNtK0g791sQHKhENX31wr8QvBK2JSm8x3-NiVSkk~1AuYatlaeQGv3PKvQhPQTpyXfIL68jRfNkf-WQGywNdmlOyVcp4t9XYd3dnLbU53~eO4z7z5E-W9CtsKody7RVpJhl8GL-cW03mDXG-4P36P8PMr8LxMBdA0XOZkHdMZ2mCe0r~s~Qz9vZhRi2WNvXAFw74VO4BgY04MIuPMjH3Ihfm3RpdKwFXsGH0jRH-VCQxg48AvagabLb5L3CNdmYuB0pdcWy4zqRgK5SFavVk-sN9tkMWWiuPOKWXkeWlB9UA5brGOkvjYkIgD~xglJ0INtaR0AHFUDFGuLRq3EYw__&Key-Pair-Id=APKAICDSGT3Y7IXGJ3TA
