@@ -28,11 +28,12 @@ def update_kbs_links():
 
 def update_mbn_link():
     try:
-        # 获取MBN播放链接，使用与KBS相同的方式获取完整URL
-        response = requests.get('https://hls-live.mbn.co.kr/mbn-on-air/600k/playlist.m3u8')
+        # 通过MBN认证接口获取播放链接
+        auth_url = "https://www.mbn.co.kr/player/mbnStreamAuth_new_live.mbn?vod_url=https://hls-live.mbn.co.kr/mbn-on-air/600k/playlist.m3u8"
+        response = requests.get(auth_url)
         if response.status_code == 200:
-            # 返回完整的URL，包含认证参数
-            return response.url
+            return response.text.strip()
+            
     except Exception as e:
         print(f'Error updating MBN link: {str(e)}')
     return None
