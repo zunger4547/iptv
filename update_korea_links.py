@@ -11,15 +11,32 @@ def update_kbs_links():
     }
     
     try:
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+            'Referer': 'https://www.kbs.co.kr',
+            'Origin': 'https://www.kbs.co.kr',
+            'Accept': '*/*',
+            'Accept-Language': 'ko-KR,ko;q=0.9'
+        }
+
+        # 配置会话
+        session = requests.Session()
+
         # 获取KBS 1TV链接
-        response = requests.get('https://1tv.gscdn.kbs.co.kr/1tv_3.m3u8')
+        auth_url = 'https://cfpwwwapi.kbs.co.kr/api/v1/landing/live/channel_code/11'
+        response = session.get(auth_url, headers=headers)
         if response.status_code == 200:
-            kbs_links['KBS1TV'] = response.url
+            data = response.json()
+            if 'channel_item' in data and len(data['channel_item']) > 0:
+                kbs_links['KBS1TV'] = data['channel_item'][0]['service_url']
 
         # 获取KBS 2TV链接
-        response = requests.get('https://2tv.gscdn.kbs.co.kr/2tv_1.m3u8')
+        auth_url = 'https://cfpwwwapi.kbs.co.kr/api/v1/landing/live/channel_code/12'
+        response = session.get(auth_url, headers=headers)
         if response.status_code == 200:
-            kbs_links['KBS2TV'] = response.url
+            data = response.json()
+            if 'channel_item' in data and len(data['channel_item']) > 0:
+                kbs_links['KBS2TV'] = data['channel_item'][0]['service_url']
 
         return kbs_links
     except Exception as e:
