@@ -32,8 +32,12 @@ jobs:
       run: |
         git config --local user.email "actions@github.com"
         git config --local user.name "GitHub Actions"
+        # 保存未提交的更改
+        git stash
         # 先拉取最新代码
         git pull origin main --rebase
+        # 恢复未提交的更改
+        git stash pop
         # 添加所有变更
         git add -A
         # 检查是否有变更
