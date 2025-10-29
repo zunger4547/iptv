@@ -1,0 +1,58 @@
+韩国电视,#genre#
+
+연합뉴스,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_216_AB271679.m3u8
+YTN,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_215_6B2BDBDE.m3u8
+MBN,http://www.hwado.net/webtv/catv/54.php#http:\\youtv.dothome.co.kr\ch\catv\54.php
+KBS1,https://jungeo.gt.tc/kbs.php?id=1#http:\\youtv.dothome.co.kr\ch\public\1.php
+KBS2,https://jungeo.gt.tc/kbs.php?id=2#http:\\youtv.dothome.co.kr\ch\public\3.php
+KBS World,https://jungeo.gt.tc/kbs.php?id=3#http:\\youtv.dothome.co.kr\ch\catv\7.php
+KBS News D,https://jungeo.gt.tc/kbs.php?id=4#http:\\youtv.dothome.co.kr\ch\catv\1.php
+KBS Drama,https://jungeo.gt.tc/kbs.php?id=5#http:\\youtv.dothome.co.kr\ch\catv\2.php
+KBS Joy,https://jungeo.gt.tc/kbs.php?id=6#http:\\youtv.dothome.co.kr\ch\catv\3.php
+KBS Life,https://jungeo.gt.tc/kbs.php?id=7#http:\\youtv.dothome.co.kr\ch\catv\5.php
+KBS Story,https://jungeo.gt.tc/kbs.php?id=8#http:\\youtv.dothome.co.kr\ch\catv\4.php
+KBS Kid,https://jungeo.gt.tc/kbs.php?id=9#http:\\youtv.dothome.co.kr\ch\catv\6.php
+대전 KBS1,http://youtv.dothome.co.kr/ch/public/11.php
+광주 KBS1,http://youtv.dothome.co.kr/ch/public/12.php
+대구 KBS1,http://youtv.dothome.co.kr/ch/public/13.php
+울산 KBS1,http://youtv.dothome.co.kr/ch/public/14.php
+부산KBS1,http://youtv.dothome.co.kr/ch/public/15.php
+SBS,https://vod.ikbc.co.kr/KBCTV/tv/playlist.m3u8
+MBC,https://ns1.tjmbc.co.kr/live/myStream.sdp/playlist.m3u8
+춘천MBC,https://stream.chmbc.co.kr/TV/myStream/playlist.m3u8
+대전MBC,http://ns1.tjmbc.co.kr:1935/live/myStream.sdp/playlist.m3u8
+대구MBC,http://5ee1ec6f32118.streamlock.net:1935/live/livetv/playlist.m3u8
+목포MBC,http://vod.mpmbc.co.kr:1935/live/encoder-tv/playlist.m3u8
+여수MBC,https://5c3639aa99149.streamlock.net/live_TV/tv/playlist.m3u8
+JTBC,http:\\youtv.dothome.co.kr\ch\catv\51_469EE6CC.php
+MBC 아메리카,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_236_0B21695E.m3u8
+JTBC SPORTS,http://www.hwado.net/webtv/catv/58.php
+나는 자연인이다,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_262_03C4258B.m3u8
+백반기행,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_269_96C359FF.m3u8
+맛있는녀석들,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_235_DCEF4BAE.m3u8
+방송대학,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_313_D46B5C07.m3u8
+RNA,http://180.70.92.10:1935/CHsoom/LIVE/chunklist_w1063033839.m3u8
+한국영화,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_224_DB653155.m3u8
+TV조선,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_53_245B29EC.m3u8#https://kortv2.b-cdn.net/live2/tvcho2/playlist.m3u8
+EBS1,http://ebsonairios.ebs.co.kr/groundwavetablet500k/tablet500k/groundwavetablet500k.m3u8
+EBS2,http://ebsonairios.ebs.co.kr/ebs2tablet500k/tablet500k/ebs2tablet500k.index.m3u8
+EBS1+,http://ebsonairios.ebs.co.kr/plus1tablet500k/tablet500k/plus1tablet500k.index.m3u8
+EBS2+,http://ebsonairios.ebs.co.kr/plus2tablet500k/tablet500k/plus2tablet500k.index.m3u8
+EBSE,http://ebsonairios.ebs.co.kr/plus3tablet500k/tablet500k/plus3tablet500k.index.m3u8
+EBS Kids,http://ebsonairios.ebs.co.kr/ebsutablet500k/_definst_/tablet500k/playlist.m3u8
+KORTV,https://hlive.ktv.go.kr/live/klive_h.stream/playlist.m3u8
+KFN,http://mediaworks.dema.mil.kr:1935/live_edge/cudo.sdp/playlist.m3u8
+TBS,https://cdntv.tbs.seoul.kr/tbs/_definst_/tbs_tv_web_720.smil/playlist.m3u8#https://cdntv.tbs.seoul.kr/tbs/tbs_tv_web.smil/playlist.m3u8
+JCN,http://jcnonair-1108.acs.wecandeo.com/ms/3162/1108/index_1.m3u8
+YTN 과학,http://youtv.dothome.co.kr/ch/catv/261.php
+인천BTV,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_415_3B0A4DFF.m3u8
+매일경제,http://vodmmf.mbn.co.kr/mmoney/smil:money.smil/chunklist_b440000.m3u8
+국회방송,http://115.71.58.247/live/_definst_/smil:natv_720p.smil/chunklist_w105203350_b1116401.m3u8#https://m.webcast.go.kr/live/_definst_/smil:natv_720p.smil/playlist.m3u8
+소상공인방송,http://cdnlive29.smartucc.kr/smartlive/558/91258ac21591769e21f41b96f26d883e/playlist.m3u8
+산업방송 채널i,http://1.201.160.177:1935/live/myStream/playlist.m3u8
+scs서경방송,https://live.iscs.co.kr/m_live/1080p.stream/playlist.m3u8#https://live.iscs.co.kr/m_live/480p.stream/playlist.m3u8
+지방자치,https://jjctv.ecn.cdn.infralab.net/jjctv/live/playlist.m3u8
+ABN,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_412.m3u8
+NBS,https://media.joycorp.co.kr:4443/live/live_720p/playlist.m3u8
+국방,http:\\mediaworks.dema.mil.kr:1935\live_edge\cudo.sdp\playlist.m3u8
+국악,http:\\mgugaklive.nowcdn.co.kr\gugakvideo\gugakvideo.stream\playlist.m3u8
