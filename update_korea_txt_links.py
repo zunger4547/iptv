@@ -95,22 +95,22 @@ def update_kr_txt_file():  # 函数名修改：明确操作kr.txt，而非m3u
             f.writelines(updated_lines)  # 批量写入所有行
 
     # （可选）若kr.txt要更新MBN，可添加以下逻辑（和KBS逻辑一致）
-    # mbn_link = update_mbn_link()
-    # if mbn_link:
-    #     updated_lines = []
-    #     for line in lines:
-    #         line = line.strip()
-    #         if not line:
-    #             updated_lines.append('\n')
-    #             continue
-    #         channel_part, url_part = line.split(',', 1) if ',' in line else (line, '')
-    #         if channel_part == 'MBN' and mbn_link:
-    #             updated_lines.append(f'MBN,{mbn_link}\n')
-    #             print(f'Updated MBN: {mbn_link}')
-    #         else:
-    #             updated_lines.append(line + '\n')
-    #     with open('kr.txt', 'w', encoding='utf-8') as f:
-    #         f.writelines(updated_lines)
+     mbn_link = update_mbn_link()
+     if mbn_link:
+         updated_lines = []
+         for line in lines:
+             line = line.strip()
+             if not line:
+                 updated_lines.append('\n')
+                 continue
+             channel_part, url_part = line.split(',', 1) if ',' in line else (line, '')
+             if channel_part == 'MBN' and mbn_link:
+                 updated_lines.append(f'MBN,{mbn_link}\n')
+                 print(f'Updated MBN: {mbn_link}')
+             else:
+                 updated_lines.append(line + '\n')
+         with open('kr.txt', 'w', encoding='utf-8') as f:
+             f.writelines(updated_lines)
 
     print(f'Links updated successfully at {datetime.now()}')
 
