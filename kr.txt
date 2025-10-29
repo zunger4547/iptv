@@ -52,7 +52,7 @@ EBS2+,http://ebsonairios.ebs.co.kr/plus2tablet500k/tablet500k/plus2tablet500k.in
 EBSE,http://ebsonairios.ebs.co.kr/plus3tablet500k/tablet500k/plus3tablet500k.index.m3u8
 EBS Kids,http://ebsonairios.ebs.co.kr/ebsutablet500k/_definst_/tablet500k/playlist.m3u8
 
-MBN,http://www.hwado.net/webtv/catv/54.php#http:\\youtv.dothome.co.kr\ch\catv\54.php
+MBN,https://hls-live.mbn.co.kr/mbn-on-air/600k/playlist.m3u8?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cCo6Ly9obHMtbGl2ZS5tYm4uY28ua3IvKiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2MTgzNDI1MH0sIklwQWRkcmVzcyI6eyJBV1M6U291cmNlSXAiOiIwLjAuMC4wLzAifX19XX0_&Signature=oP~-~wPHuVUQ858UnncCSadkOuW-5B3-M7kOJjz-hQmi6gLcw8sbdS0zIWHxOcRkfhuJNP7yhr6ybHjbqZ0x4RB07adq1QcRxAz1xzhSMEfmQpRs-f0iHDC0wUpPU50uX6j2AIjIHfVyH8NXf5HkAJqXN0axEKGcBeYjoN6DUkw_&Key-Pair-Id=pub_hls-live.mbn.co.kr
 
 KORTV,https://hlive.ktv.go.kr/live/klive_h.stream/playlist.m3u8
 
