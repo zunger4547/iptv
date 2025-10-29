@@ -8,10 +8,20 @@ import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 def update_kbs_links():
-    kbs_links = {
-        'KBS1': '',
-        'KBS2': ''
+    # 定义所有KBS频道及其对应的channel_code
+    kbs_channels = {
+        'KBS1': '11',
+        'KBS2': '12',
+        'KBS World': '14',
+        'KBS News D': '81',
+        'KBS Drama': 'N91',
+        'KBS Joy': 'N92',
+        'KBS Life': 'N93',
+        'KBS Story': 'N94',
+        'KBS Kid': 'N96'
     }
+    
+    kbs_links = {channel: '' for channel in kbs_channels.keys()}
     
     try:
         # 使用与PHP代码更接近的请求头
@@ -31,53 +41,36 @@ def update_kbs_links():
         session = requests.Session()
         session.headers.update(headers)
 
-        # 获取KBS1链接
-        auth_url = 'https://cfpwwwapi.kbs.co.kr/api/v1/landing/live/channel_code/11'
-        response = session.get(auth_url, headers=headers, verify=False, timeout=10)
-        print(f"KBS1 请求状态: {response.status_code}")
-        
-        if response.status_code == 200:
-            print(f"KBS1 响应内容: {response.text[:200]}")  # 调试输出
+        # 遍历所有KBS频道获取链接
+        for channel_name, channel_code in kbs_channels.items():
+            auth_url = f'https://cfpwwwapi.kbs.co.kr/api/v1/landing/live/channel_code/{channel_code}'
+            
             try:
-                data = response.json()
-                if 'channel_item' in data and len(data['channel_item']) > 0:
-                    kbs_links['KBS1'] = data['channel_item'][0]['service_url']
-                    print(f"KBS1 获取成功: {kbs_links['KBS1']}")
+                response = session.get(auth_url, headers=headers, verify=False, timeout=10)
+                print(f"{channel_name} 请求状态: {response.status_code}")
+                
+                if response.status_code == 200:
+                    print(f"{channel_name} 响应内容: {response.text[:200]}")  # 调试输出
+                    try:
+                        data = response.json()
+                        if 'channel_item' in data and len(data['channel_item']) > 0:
+                            kbs_links[channel_name] = data['channel_item'][0]['service_url']
+                            print(f"{channel_name} 获取成功: {kbs_links[channel_name]}")
+                        else:
+                            print(f"{channel_name} channel_item 为空或不存在")
+                    except json.JSONDecodeError as e:
+                        print(f"{channel_name} JSON解析失败: {e}")
+                        # 尝试使用正则表达式提取（像PHP代码那样）
+                        match = re.search(r'"service_url":"(.*?)"', response.text)
+                        if match:
+                            kbs_links[channel_name] = match.group(1)
+                            print(f"{channel_name} 正则提取成功: {kbs_links[channel_name]}")
                 else:
-                    print("KBS1 channel_item 为空或不存在")
-            except json.JSONDecodeError as e:
-                print(f"KBS1 JSON解析失败: {e}")
-                # 尝试使用正则表达式提取（像PHP代码那样）
-                match = re.search(r'"service_url":"(.*?)"', response.text)
-                if match:
-                    kbs_links['KBS1'] = match.group(1)
-                    print(f"KBS1 正则提取成功: {kbs_links['KBS1']}")
-        else:
-            print(f"KBS1 请求失败: {response.status_code}")
-
-        # 获取KBS2链接
-        auth_url = 'https://cfpwwwapi.kbs.co.kr/api/v1/landing/live/channel_code/12'
-        response = session.get(auth_url, headers=headers, verify=False, timeout=10)
-        print(f"KBS2 请求状态: {response.status_code}")
-        
-        if response.status_code == 200:
-            print(f"KBS2 响应内容: {response.text[:200]}")  # 调试输出
-            try:
-                data = response.json()
-                if 'channel_item' in data and len(data['channel_item']) > 0:
-                    kbs_links['KBS2'] = data['channel_item'][0]['service_url']
-                    print(f"KBS2 获取成功: {kbs_links['KBS2']}")
-                else:
-                    print("KBS2 channel_item 为空或不存在")
-            except json.JSONDecodeError as e:
-                print(f"KBS2 JSON解析失败: {e}")
-                # 尝试使用正则表达式提取
-                match = re.search(r'"service_url":"(.*?)"', response.text)
-                if match:
-                    kbs_links['KBS2'] = match.group(1)
-                    print(f"KBS2 正则提取成功: {kbs_links['KBS2']}")
-        else:
-            print(f"KBS2 请求失败: {response.status_code}")
+                    print(f"{channel_name} 请求失败: {response.status_code}")
+                    
+            except Exception as e:
+                print(f"{channel_name} 请求异常: {str(e)}")
+                continue
 
         return kbs_links
         
@@ -134,7 +127,7 @@ def update_kr_txt_file():
         if kbs_links and channel_part in kbs_links and kbs_links[channel_part]:
             new_line = f'{channel_part},{kbs_links[channel_part]}'
             updated_lines.append(new_line)
-            print(f'Updated {channel_part}: {kbs_links[channel_part]}')
+            print(f'Updated {channel_part}: {kbs_links[channel_part][:50]}...')  # 只显示前50字符
         else:
             # 保持原行
             updated_lines.append(line)
@@ -146,7 +139,7 @@ def update_kr_txt_file():
         for line in updated_lines:
             if line.startswith('MBN,') and mbn_link:
                 final_lines.append(f'MBN,{mbn_link}')
-                print(f'Updated MBN: {mbn_link}')
+                print(f'Updated MBN: {mbn_link[:50]}...')
             else:
                 final_lines.append(line)
         updated_lines = final_lines
@@ -156,6 +149,13 @@ def update_kr_txt_file():
         with open('kr.txt', 'w', encoding='utf-8') as f:
             f.write('\n'.join(updated_lines))
         print(f'Links updated successfully at {datetime.now()}')
+        
+        # 显示更新统计
+        if kbs_links:
+            success_count = sum(1 for link in kbs_links.values() if link)
+            total_count = len(kbs_links)
+            print(f'KBS频道更新统计: {success_count}/{total_count} 个频道成功更新')
+            
     except Exception as e:
         print(f'Error writing kr.txt: {str(e)}')
 
