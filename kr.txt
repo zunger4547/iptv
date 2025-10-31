@@ -18,19 +18,19 @@ KBS Kid,https://kbsnkids.gscdn.kbs.co.kr/kbsnkids-02/kbsnkids-02_sd.m3u8?Expires
 울산 KBS1,http://youtv.dothome.co.kr/ch/public/14.php
 부산KBS1,http://youtv.dothome.co.kr/ch/public/15.php
 SBS,https://vod.ikbc.co.kr/KBCTV/tv/playlist.m3u8
+CJB SBS,http://1.222.207.80:1935/live/cjbtv/playlist.m3u8
 MBC,https://ns1.tjmbc.co.kr/live/myStream.sdp/playlist.m3u8
-춘천MBC,https://stream.chmbc.co.kr/TV/myStream/playlist.m3u8
-대전MBC,http://ns1.tjmbc.co.kr:1935/live/myStream.sdp/playlist.m3u8
-대구MBC,http://5ee1ec6f32118.streamlock.net:1935/live/livetv/playlist.m3u8
 목포MBC,http://vod.mpmbc.co.kr:1935/live/encoder-tv/playlist.m3u8
-여수MBC,https://5c3639aa99149.streamlock.net/live_TV/tv/playlist.m3u8
+goodtv,http://mobliestream.c3tv.com:1935/live/goodtv.sdp/playlist.m3u8
+MBC충북,http://211.33.246.4:32954/cj_live/myStream.sdp/playlist.m3u8
+MBC강원,http://123.254.93.7:1935/tvlive/livestream2/playlist.m3u8
 JTBC,http:\\youtv.dothome.co.kr\ch\catv\51_469EE6CC.php
 MBC 아메리카,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_236_0B21695E.m3u8
 JTBC SPORTS,http://www.hwado.net/webtv/catv/58.php
 나는 자연인이다,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_262_03C4258B.m3u8
 백반기행,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_269_96C359FF.m3u8
 맛있는녀석들,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_235_DCEF4BAE.m3u8
-방송대학,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_313_D46B5C07.m3u8
+OUN방송대학,https://live.knou.ac.kr/knou1/live1/playlist.m3u8
 RNA,http://180.70.92.10:1935/CHsoom/LIVE/chunklist_w1063033839.m3u8
 한국영화,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_224_DB653155.m3u8
 TV조선,http://onair.cdn.tvchosun.com/origin1/_definst_/tvchosun_s1/playlist.m3u8
