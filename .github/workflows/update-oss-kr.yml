@@ -32,10 +32,7 @@ jobs:
       # 步骤3：下载并安装 ossutil
       - name: Download and install ossutil
         run: |
-          wget https://gosspublic.alicdn.com/ossutil/1.7.19/ossutil64 -O ossutil64
-          chmod +x ossutil64
-          echo "ossutil 版本信息："
-          ./ossutil64 --version
+         sudo -v ; curl https://gosspublic.alicdn.com/ossutil/install.sh | sudo bash
 
       # 步骤4：上传 kr.txt 文件到 OSS
       - name: Upload kr.txt to OSS
