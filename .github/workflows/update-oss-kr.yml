@@ -1,0 +1,68 @@
+name: Update kr.txt on OSS
+
+on:
+  # 触发条件1：当代码推送到 main 分支时自动运行
+  push:
+    branches: [ main ]
+  
+  # 触发条件2：允许手动触发此工作流（可选）
+  workflow_dispatch:
+    # 可以在 GitHub Actions 页面手动运行此工作流
+
+  # 触发条件3：定时任务（可选，按需启用）
+  # schedule:
+  #   - cron: '0 2 * * *'  # 每天 UTC 时间 2:00（北京时间 10:00）运行
+
+jobs:
+  update-oss-file:
+    runs-on: ubuntu-latest  # 使用最新的 Ubuntu 系统作为运行环境
+    
+    steps:
+      # 步骤1：检出仓库代码
+      - name: Checkout repository code
+        uses: actions/checkout@v4
+        with:
+          # 完整检出历史，确保所有文件都可用
+          fetch-depth: 0
+
+      # 步骤2：（可选）验证文件存在
+      - name: Verify kr.txt exists
+        run: |
+          if [ ! -f "./kr.txt" ]; then
+            echo "错误：kr.txt 文件不存在！"
+            echo "当前目录文件列表："
+            ls -la
+            exit 1
+          else
+            echo "✓ kr.txt 文件存在，文件大小："
+            ls -la ./kr.txt
+          fi
+
+      # 步骤3：使用阿里云 OSS Action 上传文件
+      - name: Upload kr.txt to Alibaba Cloud OSS
+        uses: aliyun/oss-action@v1
+        with:
+          # 从 GitHub Secrets 读取认证信息
+          access-key-id: ${{ secrets.OSS_ACCESS_KEY_ID }}
+          access-key-secret: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
+          
+          # OSS 端点（根据您的 Bucket 所在地域修改）
+          # 请在阿里云 OSS 控制台查看您的 Bucket 详情获取正确的 endpoint
+          endpoint: https://oss-cn-hangzhou.aliyuncs.com
+          
+          # 执行的操作命令：cp（复制文件）
+          command: cp
+          
+          # 命令参数：
+          # 格式：<本地源文件路径> <OSS目标路径>
+          args: |
+            ./kr.txt
+            oss://kortv/kr.txt
+          
+          # 可选参数：强制覆盖已存在的文件
+          # 如果 OSS 中已存在同名文件，会自动覆盖
+          extra-args: -f
+
+      # 步骤4：（可选）上传完成确认
+      - name: Upload completion message
+        run: echo "✓ kr.txt 已成功上传到阿里云 OSS"
