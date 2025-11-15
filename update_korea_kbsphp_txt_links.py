@@ -20,6 +20,9 @@ def get_live_url_from_php(php_url):
             'Connection': 'keep-alive'
         }
         
+        # 修复URL中的反斜杠（如果有）
+        php_url = php_url.replace('\\', '/')
+        
         # 发起请求，允许重定向
         response = requests.get(php_url, headers=headers, verify=False, timeout=10, allow_redirects=True)
         
@@ -41,14 +44,25 @@ def get_live_url_from_php(php_url):
                     r'https?://[^\s"\']+\.mp4[^\s"\']*',
                     r'https?://[^\s"\']+\.flv[^\s"\']*',
                     r'https?://[^\s"\']+/playlist\.m3u8[^\s"\']*',
-                    r'https?://[^\s"\']+/chunklist\.m3u8[^\s"\']*'
+                    r'https?://[^\s"\']+/chunklist\.m3u8[^\s"\']*',
+                    r'file:\s*["\'](https?://[^"\']+)["\']',
+                    r'source:\s*["\'](https?://[^"\']+)["\']',
+                    r'src:\s*["\'](https?://[^"\']+)["\']'
                 ]
                 
                 for pattern in patterns:
                     matches = re.findall(pattern, response.text)
                     if matches:
-                        print(f"从内容中找到直播链接: {matches[0]}")
-                        return matches[0]
+                        live_url = matches[0]
+                        print(f"从内容中找到直播链接: {live_url}")
+                        return live_url
+                
+                # 如果以上方法都失败，尝试查找包含m3u8的script标签
+                m3u8_pattern = r'["\'](https?://[^"\']+\.m3u8[^"\']*)["\']'
+                m3u8_matches = re.findall(m3u8_pattern, response.text)
+                if m3u8_matches:
+                    print(f"找到m3u8链接: {m3u8_matches[0]}")
+                    return m3u8_matches[0]
         
         print(f"无法从PHP链接获取直播流: {php_url}")
         return None
@@ -72,6 +86,29 @@ def update_regional_kbs_links():
     updated_links = {}
     
     for channel_name, php_url in regional_channels.items():
+        print(f"正在处理 {channel_name}...")
+        live_url = get_live_url_from_php(php_url)
+        if live_url:
+            updated_links[channel_name] = live_url
+        else:
+            # 如果无法获取新链接，保持原PHP链接
+            updated_links[channel_name] = php_url
+    
+    return updated_links
+
+def update_other_channels_links():
+    """
+    更新其他频道的链接（JTBC, JTBC SPORTS, YTN 과학）
+    """
+    other_channels = {
+        'JTBC': 'http://youtv.dothome.co.kr/ch/catv/51_469EE6CC.php',
+        'JTBC SPORTS': 'http://www.hwado.net/webtv/catv/58.php',
+        'YTN 과학': 'http://youtv.dothome.co.kr/ch/catv/261.php'
+    }
+    
+    updated_links = {}
+    
+    for channel_name, php_url in other_channels.items():
         print(f"正在处理 {channel_name}...")
         live_url = get_live_url_from_php(php_url)
         if live_url:
@@ -179,10 +216,10 @@ def update_kr_txt_file():
         print(f'Error reading kr.txt: {str(e)}')
         return
 
-    # 更新KBS链接
+    # 更新各种链接
     kbs_links = update_kbs_links()
-    # 更新地区性KBS链接
     regional_links = update_regional_kbs_links()
+    other_links = update_other_channels_links()
     
     updated_lines = []
     
@@ -201,8 +238,13 @@ def update_kr_txt_file():
             channel_part = line.strip()
             url_part = ''
         
+        # 更新其他频道（JTBC, JTBC SPORTS, YTN 과학）
+        if channel_part in other_links:
+            new_line = f'{channel_part},{other_links[channel_part]}'
+            updated_lines.append(new_line)
+            print(f'Updated {channel_part}: {other_links[channel_part][:50]}...')
         # 更新地区性KBS频道
-        if channel_part in regional_links:
+        elif channel_part in regional_links:
             new_line = f'{channel_part},{regional_links[channel_part]}'
             updated_lines.append(new_line)
             print(f'Updated {channel_part}: {regional_links[channel_part][:50]}...')
@@ -243,6 +285,11 @@ def update_kr_txt_file():
             regional_success = sum(1 for link in regional_links.values() if not link.endswith('.php'))
             regional_total = len(regional_links)
             print(f'地区KBS频道更新统计: {regional_success}/{regional_total} 个频道成功获取直播链接')
+            
+        if other_links:
+            other_success = sum(1 for link in other_links.values() if not link.endswith('.php'))
+            other_total = len(other_links)
+            print(f'其他频道更新统计: {other_success}/{other_total} 个频道成功获取直播链接')
             
     except Exception as e:
         print(f'Error writing kr.txt: {str(e)}')
