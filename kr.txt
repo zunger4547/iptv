@@ -55,5 +55,5 @@ scs서경방송,https://live.iscs.co.kr/m_live/1080p.stream/playlist.m3u8#https:
 지방자치,https://jjctv.ecn.cdn.infralab.net/jjctv/live/playlist.m3u8
 ABN,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_412.m3u8
 NBS,https://media.joycorp.co.kr:4443/live/live_720p/playlist.m3u8
-국방,http:\\mediaworks.dema.mil.kr:1935\live_edge\cudo.sdp\playlist.m3u8
-국악,http:\\mgugaklive.nowcdn.co.kr\gugakvideo\gugakvideo.stream\playlist.m3u8
+국방,http://mediaworks.dema.mil.kr:1935/live_edge/cudo.sdp/playlist.m3u8
+국악,http://mgugaklive.nowcdn.co.kr/gugakvideo/gugakvideo.stream/playlist.m3u8
