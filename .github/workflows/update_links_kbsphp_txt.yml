@@ -26,7 +26,7 @@ jobs:
         pip install requests
     
     - name: Run update script
-      run: update_korea_kbsphp_txt_links.py
+      run: python update_korea_kbsphp_txt_links.py
     
     - name: Commit and push if changed
       id: commit
