@@ -2,7 +2,7 @@ name: Update Korea Links
 
 on:
   schedule:
-    - cron: '0 */8 * * *'  # 修改为每2小时运行一次（每2小时的0分）
+    - cron: '0 */8 * * *'  # 修改为每8小时运行一次（每2小时的0分）
   workflow_dispatch:     # 允许手动触发
 
 jobs:
