@@ -12,13 +12,16 @@ on:
 
 jobs:
   update-oss-file:
-    # 添加条件：只有当kr.txt文件被更改时才运行
-    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_commit.message == '自动更新: 更新韩国频道播放链接' }}
     runs-on: ubuntu-latest
+    # 修正：将if条件移到jobs级别，使用正确的语法
+    if: >
+      github.event_name == 'workflow_run' && 
+      github.event.workflow_run.conclusion == 'success' && 
+      github.event.workflow_run.head_commit.message == '自动更新: 更新韩国频道播放链接'
     
     steps:
       # 步骤 1: 等待1分钟延迟
-      - name: Wait for 1 minutes
+      - name: Wait for 1 minute
         run: sleep 60
         shell: bash
 
