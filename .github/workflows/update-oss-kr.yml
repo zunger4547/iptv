@@ -13,15 +13,16 @@ on:
 jobs:
   update-oss-file:
     runs-on: ubuntu-latest
-    # 修正：将if条件移到jobs级别，使用正确的语法
-    if: >
-      github.event_name == 'workflow_run' && 
-      github.event.workflow_run.conclusion == 'success' && 
-      github.event.workflow_run.head_commit.message == '自动更新: 更新韩国频道播放链接'
+    # 简化条件：允许所有触发方式，但对workflow_run添加额外条件
+    if: |
+      github.event_name == 'push' ||
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success')
     
     steps:
-      # 步骤 1: 等待1分钟延迟
-      - name: Wait for 1 minute
+      # 步骤 1: 等待1分钟延迟（仅在workflow_run触发时等待）
+      - name: Wait for 1 minute on workflow_run
+        if: github.event_name == 'workflow_run'
         run: sleep 60
         shell: bash
 
@@ -85,5 +86,5 @@ jobs:
           echo "📄 文件: kr.txt"
           echo "📍 Endpoint: oss-cn-hangzhou.aliyuncs.com"
           echo "⏰ 完成时间: $(date)"
-          echo "🔗 由工作流 'Update Korea Links' 触发"
+          echo "🔗 触发方式: ${{ github.event_name }}"
           echo "=========================================="
