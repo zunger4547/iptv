@@ -102,6 +102,7 @@ def update_other_channels_links():
     """
     other_channels = {
         'JTBC': 'http://youtv.dothome.co.kr/ch/catv/51_469EE6CC.php',
+        'JTBC SPORTS': 'http://www.hwado.net/webtv/catv/58.php',
     }
     
     updated_links = {}
