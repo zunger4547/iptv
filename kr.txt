@@ -25,8 +25,8 @@ goodtv,http://mobliestream.c3tv.com:1935/live/goodtv.sdp/playlist.m3u8
 MBC충북,http://211.33.246.4:32954/cj_live/myStream.sdp/playlist.m3u8
 MBC강원,http://123.254.93.7:1935/tvlive/livestream2/playlist.m3u8
 JTBC,https://jtbclive-cdn.jtbc.co.kr/mobileweb/newmoweb.stream/playlist.m3u8?Policy=eyJTdGF0ZW1lbnQiOiBbeyJSZXNvdXJjZSI6Imh0dHAqOi8vanRiY2xpdmUtY2RuLmp0YmMuY28ua3IvKiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2MzI2NTU4MX0sIklwQWRkcmVzcyI6eyJBV1M6U291cmNlSXAiOiIwLjAuMC4wLzAifX19XX0_&Signature=GKCqEY7CfEUntDXtNiCLrLh4P~Z0rT1Wnzj0ufOVb4RpjoA7TZqh6~8RrDloTm88J9NDjlkRJ7jt7wGVDjSvkooS9oAz-5sWZmmdsR9UjlKXFDucsLNFGQ9zrnjeoQ8QuR4V-gePv0is2jS1JyQO0P1OV82rvpQG3SIr3yf2fpE_&Key-Pair-Id=pub_jtbclive-cdn.jtbc.co.kr
+JTBC SPORTS,http://www.hwado.net/webtv/catv/58.php
 MBC 아메리카,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_236_0B21695E.m3u8
-JTBC SPORTS,http://jtbc3sports.flive.skcdn.com/jtbc3sports1/_definst_/AF5A303B1085A94EA3DEA5CBCA125C8CFA9EA2FACD86137E19AF3766EAA8DD1F/playlist.m3u8
 나는 자연인이다,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_262_03C4258B.m3u8
 백반기행,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_269_96C359FF.m3u8
 맛있는녀석들,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_235_DCEF4BAE.m3u8
