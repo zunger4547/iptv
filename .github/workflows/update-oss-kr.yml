@@ -4,19 +4,29 @@ on:
   push:
     branches: [ main ]
   workflow_dispatch: # 允许手动触发
-  schedule:
-    - cron: '0 2 * * *'
+  workflow_run:
+    workflows: ["Update Korea Links"]  # 监听指定工作流
+    types:
+      - completed  # 当工作流完成时触发
+    branches: [main]
 
 jobs:
   update-oss-file:
+    # 添加条件：只有当kr.txt文件被更改时才运行
+    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_commit.message == '自动更新: 更新韩国频道播放链接' }}
     runs-on: ubuntu-latest
     
     steps:
-      # 步骤 1: 检出你的仓库代码
+      # 步骤 1: 等待1分钟延迟
+      - name: Wait for 1 minutes
+        run: sleep 60
+        shell: bash
+
+      # 步骤 2: 检出你的仓库代码
       - name: Checkout repository code
         uses: actions/checkout@v4
 
-      # 步骤 2: 验证目标文件是否存在
+      # 步骤 3: 验证目标文件是否存在
       - name: Verify kr.txt exists
         run: |
           if [ -f "./kr.txt" ]; then
@@ -29,33 +39,31 @@ jobs:
             exit 1
           fi
 
-      # 步骤 3: 通过官方脚本安装ossutil (推荐方案)
+      # 步骤 4: 通过官方脚本安装ossutil
       - name: Install ossutil via official script
         run: |
           echo "开始通过官方脚本安装 ossutil..."
-          # 此脚本会自动下载并安装最新可用的ossutil版本[citation:8]
           sudo -v ; curl https://gosspublic.alicdn.com/ossutil/install.sh | sudo bash
           echo "✅ 官方脚本执行完毕"
 
-      # 步骤 4: 验证ossutil安装
+      # 步骤 5: 验证ossutil安装
       - name: Verify ossutil installation
         run: |
           echo "检查ossutil是否可用..."
           ossutil --version
           echo "✅ ossutil 安装验证成功"
 
-      # 步骤 5: 上传文件到OSS
+      # 步骤 6: 上传文件到OSS
       - name: Upload kr.txt to OSS
         run: |
           echo "开始上传 kr.txt 到 OSS..."
-          # 使用 -f 选项强制覆盖OSS上的同名文件[citation:5]
           ossutil cp ./kr.txt oss://kortv/kr.txt -f \
             -e oss-cn-hangzhou.aliyuncs.com \
             -i ${{ secrets.OSS_ACCESS_KEY_ID }} \
             -k ${{ secrets.OSS_ACCESS_KEY_SECRET }}
           echo "✅ 文件上传命令执行完成"
 
-      # 步骤 6: (可选) 验证上传结果
+      # 步骤 7: 验证上传结果
       - name: Verify upload success
         run: |
           echo "验证文件是否已成功上传至OSS..."
@@ -65,7 +73,7 @@ jobs:
             -k ${{ secrets.OSS_ACCESS_KEY_SECRET }}
           echo "🎉 kr.txt 文件已成功上传至阿里云 OSS！"
 
-      # 步骤 7: 任务完成总结
+      # 步骤 8: 任务完成总结
       - name: Upload completion summary
         run: |
           echo "=========================================="
@@ -74,4 +82,5 @@ jobs:
           echo "📄 文件: kr.txt"
           echo "📍 Endpoint: oss-cn-hangzhou.aliyuncs.com"
           echo "⏰ 完成时间: $(date)"
+          echo "🔗 由工作流 'Update Korea Links' 触发"
           echo "=========================================="
