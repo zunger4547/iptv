@@ -30,8 +30,6 @@ JTBC SPORTS,http://www.hwado.net/webtv/catv/58.php
 나는 자연인이다,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_262_03C4258B.m3u8
 백반기행,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_269_96C359FF.m3u8
 맛있는녀석들,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_235_DCEF4BAE.m3u8
-OUN방송대학,https://live.knou.ac.kr/knou1/live1/playlist.m3u8
-RNA,http://180.70.92.10:1935/CHsoom/LIVE/chunklist_w1063033839.m3u8
 한국영화,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_224_DB653155.m3u8
 TV조선,http://onair.cdn.tvchosun.com/origin1/_definst_/tvchosun_s1/playlist.m3u8
 TV조선2,http://onair2.cdn.tvchosun.com/origin2/_definst_/tvchosun_s3/playlist.m3u8
@@ -41,17 +39,13 @@ EBS1+,http://ebsonairios.ebs.co.kr/plus1tablet500k/tablet500k/plus1tablet500k.in
 EBS2+,http://ebsonairios.ebs.co.kr/plus2tablet500k/tablet500k/plus2tablet500k.index.m3u8
 EBSE,http://ebsonairios.ebs.co.kr/plus3tablet500k/tablet500k/plus3tablet500k.index.m3u8
 EBS Kids,http://ebsonairios.ebs.co.kr/ebsutablet500k/_definst_/tablet500k/playlist.m3u8
-KORTV,https://hlive.ktv.go.kr/live/klive_h.stream/playlist.m3u8
-KFN,http://mediaworks.dema.mil.kr:1935/live_edge/cudo.sdp/playlist.m3u8
 TBS,https://cdntv.tbs.seoul.kr/tbs/_definst_/tbs_tv_web_720.smil/playlist.m3u8#https://cdntv.tbs.seoul.kr/tbs/tbs_tv_web.smil/playlist.m3u8
-JCN,http://jcnonair-1108.acs.wecandeo.com/ms/3162/1108/index_1.m3u8
 YTN 과학,http://youtv.dothome.co.kr/ch/catv/261.php
 인천BTV,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_415_3B0A4DFF.m3u8
 매일경제,http://vodmmf.mbn.co.kr/mmoney/smil:money.smil/chunklist_b440000.m3u8
 국회방송,http://115.71.58.247/live/_definst_/smil:natv_720p.smil/chunklist_w105203350_b1116401.m3u8#https://m.webcast.go.kr/live/_definst_/smil:natv_720p.smil/playlist.m3u8
-소상공인방송,http://cdnlive29.smartucc.kr/smartlive/558/91258ac21591769e21f41b96f26d883e/playlist.m3u8
 산업방송 채널i,http://1.201.160.177:1935/live/myStream/playlist.m3u8
-scs서경방송,https://live.iscs.co.kr/m_live/1080p.stream/playlist.m3u8#https://live.iscs.co.kr/m_live/480p.stream/playlist.m3u8
+scs서경방송,https://live.iscs.co.kr/m_live/480p.stream/playlist.m3u8
 지방자치,https://jjctv.ecn.cdn.infralab.net/jjctv/live/playlist.m3u8
 ABN,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_412.m3u8
 NBS,https://media.joycorp.co.kr:4443/live/live_720p/playlist.m3u8
