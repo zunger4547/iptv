@@ -26,7 +26,7 @@ MBC충북,http://211.33.246.4:32954/cj_live/myStream.sdp/playlist.m3u8
 MBC강원,http://123.254.93.7:1935/tvlive/livestream2/playlist.m3u8
 JTBC,https://jtbclive-cdn.jtbc.co.kr/mobileweb/newmoweb.stream/playlist.m3u8?Policy=eyJTdGF0ZW1lbnQiOiBbeyJSZXNvdXJjZSI6Imh0dHAqOi8vanRiY2xpdmUtY2RuLmp0YmMuY28ua3IvKiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2MzIwMDczNX0sIklwQWRkcmVzcyI6eyJBV1M6U291cmNlSXAiOiIwLjAuMC4wLzAifX19XX0_&Signature=nidTWq3lOmm7dzN-pxRqc0L9bzvp52R3QZ7T9pNE3PlVDyPM8eq6vnZFqPS73WUfrYxg0~hbaCBJBd1eNJDSwfpdHmjAmWpWNXH-Eo-lboUuYH~BX4b-b3lHVC~HO4iyi6w7Iz6VZAoK1ftmWhBQbsR0dQcVAU5hVFlSUlTwMe4_&Key-Pair-Id=pub_jtbclive-cdn.jtbc.co.kr
 MBC 아메리카,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_236_0B21695E.m3u8
-JTBC SPORTS,http://jtbc3sports.flive.skcdn.com/jtbc3sports1/_definst_/57E2D69224B9152083CC895613DF988EDF712FE065D457C0EDACAAD042E62C29/playlist.m3u8
+JTBC SPORTS,http://www.hwado.net/webtv/catv/58.php
 나는 자연인이다,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_262_03C4258B.m3u8
 백반기행,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_269_96C359FF.m3u8
 맛있는녀석들,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_235_DCEF4BAE.m3u8
@@ -45,7 +45,7 @@ KORTV,https://hlive.ktv.go.kr/live/klive_h.stream/playlist.m3u8
 KFN,http://mediaworks.dema.mil.kr:1935/live_edge/cudo.sdp/playlist.m3u8
 TBS,https://cdntv.tbs.seoul.kr/tbs/_definst_/tbs_tv_web_720.smil/playlist.m3u8#https://cdntv.tbs.seoul.kr/tbs/tbs_tv_web.smil/playlist.m3u8
 JCN,http://jcnonair-1108.acs.wecandeo.com/ms/3162/1108/index_1.m3u8
-YTN 과학,https://sciencelive.ytn.co.kr/science/_definst_/20211118_science/playlist.m3u8?_lsu_sa_=3284e1efa0d73c25d38470013ca372db3d473558a14a15633137cc6a2bb169b1704b9b9c39b66ec705b43f006c3a58f2811cf984c26087f0771925549226c76d9542986ff166cd3c9600efd8007f89064ee4f65d1636b741b17e48b7a92c24ec135ec225bd5f637dababfcb9819efffc
+YTN 과학,http://youtv.dothome.co.kr/ch/catv/261.php
 인천BTV,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_415_3B0A4DFF.m3u8
 매일경제,http://vodmmf.mbn.co.kr/mmoney/smil:money.smil/chunklist_b440000.m3u8
 국회방송,http://115.71.58.247/live/_definst_/smil:natv_720p.smil/chunklist_w105203350_b1116401.m3u8#https://m.webcast.go.kr/live/_definst_/smil:natv_720p.smil/playlist.m3u8
