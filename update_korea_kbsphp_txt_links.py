@@ -98,12 +98,10 @@ def update_regional_kbs_links():
 
 def update_other_channels_links():
     """
-    更新其他频道的链接（JTBC, JTBC SPORTS, YTN 과학）
+    更新其他频道的链接（JTBC）
     """
     other_channels = {
         'JTBC': 'http://youtv.dothome.co.kr/ch/catv/51_469EE6CC.php',
-        'JTBC SPORTS': 'http://www.hwado.net/webtv/catv/58.php',
-        'YTN 과학': 'http://youtv.dothome.co.kr/ch/catv/261.php'
     }
     
     updated_links = {}
@@ -238,7 +236,7 @@ def update_kr_txt_file():
             channel_part = line.strip()
             url_part = ''
         
-        # 更新其他频道（JTBC, JTBC SPORTS, YTN 과학）
+        # 更新其他频道（JTBC）
         if channel_part in other_links:
             new_line = f'{channel_part},{other_links[channel_part]}'
             updated_lines.append(new_line)
