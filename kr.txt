@@ -32,7 +32,7 @@ MBC 아메리카,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_2
 백반기행,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_269_96C359FF.m3u8
 맛있는녀석들,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_235_DCEF4BAE.m3u8
 한국영화,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_224_DB653155.m3u8
-TV조선,http://onair.cdn.tvchosun.com/origin1/_definst_/tvchosun_s1/playlist.m3u8
+TV조선,http://onair.cdn.tvchosun.com/origin1/_definst_/tvchosun_s1/playlist.m3u8#https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_53_245B29EC.m3u8
 TV조선2,http://onair2.cdn.tvchosun.com/origin2/_definst_/tvchosun_s3/playlist.m3u8
 EBS1,http://ebsonairios.ebs.co.kr/groundwavetablet500k/tablet500k/groundwavetablet500k.m3u8
 EBS2,http://ebsonairios.ebs.co.kr/ebs2tablet500k/tablet500k/ebs2tablet500k.index.m3u8
