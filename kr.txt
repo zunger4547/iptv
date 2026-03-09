@@ -2,7 +2,21 @@
 
 KTV,https://hlive.ktv.go.kr/live/klive_h.stream/playlist.m3u8
 연합뉴스,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_216_AB271679.m3u8
+연합뉴스경제,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_531_42BB044F.m3u8
 YTN,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_215_6B2BDBDE.m3u8
+서울경제,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_527_C6413288.m3u8
+kbs1,http://www.hwado.net/webtv/public/1_EA49B3B2.php
+kbs2,http://www.hwado.net/webtv/public/3_2C9275B7.php
+kbs news,http://www.hwado.net/webtv/catv/1_5FA37789.php
+kbs 드라마,http://www.hwado.net/webtv/catv/2_02F85E1F.php
+kbs Joy,http://www.hwado.net/webtv/catv/3_39C33D26.php
+kbs Story,http://www.hwado.net/webtv/catv/4_084D1308.php
+kbs Life,http://www.hwado.net/webtv/catv/5_606FFDED.php
+kbs Kid,http://www.hwado.net/webtv/catv/6_970B6159.php
+kbs world,http://www.hwado.net/webtv/catv/7_A9D3B425.php
+mbn,http://www.hwado.net/webtv/catv/54_3D17698E.php
+mbn뉴스,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_537_57A9460F.m3u8
+
 MBN,https://hls-live.mbn.co.kr/mbn-on-air/600k/playlist.m3u8?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cCo6Ly9obHMtbGl2ZS5tYm4uY28ua3IvKiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzEzNzIyNH0sIklwQWRkcmVzcyI6eyJBV1M6U291cmNlSXAiOiIwLjAuMC4wLzAifX19XX0_&Signature=3MHPrBUzbNbQl0Jm2BvRwILBNIpWswPUs7XHJT8YsJu~2aV3yBY1TUWhSzx0N1fUvVVzO08JEQBYxMYb8HL5B5xLK8GVYcGSR4B0r9oS7461D7JTrgtqjnt9o0HVJA8GDosiTqWDdm6MJCVVFOeOHyQiufUUm6dmLaIyZOfKTjk_&Key-Pair-Id=pub_hls-live.mbn.co.kr
 KBS1,https://1tv.gscdn.kbs.co.kr/1tv_3.m3u8?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly8xdHYuZ3NjZG4ua2JzLmNvLmtyLyoiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3NzIwMzc4MjF9fX1dfQ__&Key-Pair-Id=APKAICDSGT3Y7IXGJ3TA&Signature=Qigi9S6huPPFYoMLV0HJdB05ffB26mQ3h2JR66ZtZR~WbVwbK6FdlvNIba2PPCuUWsOqp3lCRaaXPWmpKBUALGkYcQjaIiqLSp5mn2rI59PcTQi~WMCV~hudgOCUlE-NeLIjR-wH8npG06c95LJCX~O~Z3GweUGu~Udq1b1P28eyghljGh9pbFozswGmkgCe7CUb7yTn4rmaPFGxYUzEaFvQipsOI8Z3BKVi8~hXBUVc8Av2HFVYpJ2ObjoDevBRfp89mgXq7arpXgjslbwB5CH9ZI7SZKm3qd0Gg3VSD2od5kbqx-tN2NZNEuaGLfy9vVlDeOwSXs0ZE7HfKePQdQ__
 KBS2,https://2tv.gscdn.kbs.co.kr/2tv_1.m3u8?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly8ydHYuZ3NjZG4ua2JzLmNvLmtyLyoiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3NzIwMzc4MjV9fX1dfQ__&Key-Pair-Id=APKAICDSGT3Y7IXGJ3TA&Signature=L7AqbRI1b3OtaLtpeohVX0kS9q-CkcRLSgW38RW0afzOs9JS4Q~rhtcumNvMtXyKVyufhD2nu3JFRB-64ub7YGX6uMu4304ySqa4TYqy8OqZRlUBAm~LSU9CbbYK52-tt~llYIY0tY-ZX~xJIysQQIcNvwNsImEOw3mXVXeK5K5y7ValUlY9nHQal38FTc5CHrjCKM8x-GTrMWq-mjWmm~rxA0NbaRk15jOFC1IuzuN2QjISS9Yd4tZUdVhMgdITNC-CAq1Y6DGGAdbSlJOgEBnZKmWBleogk1~XE3FwFH2UMzMfL0eVz6g82hWlHCHFSCJ8Vw7fzPrFB5ztd1CbUA__
@@ -13,27 +27,29 @@ KBS Joy,https://kbsnjoy.gscdn.kbs.co.kr/kbsnjoy-02/kbsnjoy-02_sd.m3u8?Policy=eyJ
 KBS Life,https://kbsnlife.gscdn.kbs.co.kr/kbsnlife-02/kbsnlife-02_sd.m3u8?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9rYnNubGlmZS5nc2Nkbi5rYnMuY28ua3Iva2JzbmxpZmUtMDIvKiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MjAzNzgzOX19fV19&Key-Pair-Id=APKAICDSGT3Y7IXGJ3TA&Signature=SNgIVqBxiYti2UuGLNORZqds-GoEiRT1WGpbzPyqlsRAyyLh6CbAW~7aDEHJHVLIg2yV~sdoop5mRDTRSxelsA35GTZLay5TYSm8U9R0rKshHj~OH2Q~PYxYQCGM62I~AAGSRZupVm1N40dWoxFOpbtaKXZFgI7z8jurhAbWkHXC~3JEyTVT5R2~ZCha0eRl08qtpfFTxPchJFiWV577ly6ozYSAPjpt1cIcUgzStCGonLAkD9P2ghJb-qUa7S7uixjkCLkpxjmCPZhfhvjYADlpxn6sfAFnweYVWTQmmYI9mgYl2yVJMxZJ5xOuoYZB5~s4Nt85GO7ZJSKHnWAdhQ__
 KBS Story,https://kbsnw.gscdn.kbs.co.kr/kbsnw-02/kbsnw-02_sd.m3u8?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9rYnNudy5nc2Nkbi5rYnMuY28ua3Iva2JzbnctMDIvKiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MjAzNzgzNn19fV19&Key-Pair-Id=APKAICDSGT3Y7IXGJ3TA&Signature=RUSaDhMgZdKB508I4wIbxvdfx38kK9rZTTlMs~yuMl9OSZ5jC0sVmpEJ6AOCNH5lsxqCIW~l9Fez-S8HnAfspw6XvsTQVEJ85oTZkIkZkeR9SWb68yBGD5fUFU3uEnc5Z0Rzka5vsmVY32jAm6q9Ixg~BvyXrklcDfAFqGkUwSKKDlLFwWEyQCKl405RGLfGmC1Uv80ZNKgAP1eTp-FHxvIaYoFU-VepgvflpjIJiPHi-6tdmDaQCCqRST7F6M7lM3Lbvs7AgaZybzHsTux7WQjb~akf3n1x9XXqa7L2vyGf5uWB08iluAzIR94ie4OuE5pm1sW6S2Muc~b1yOO3QA__
 KBS Kid,https://kbsnkids.gscdn.kbs.co.kr/kbsnkids-02/kbsnkids-02_sd.m3u8?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9rYnNua2lkcy5nc2Nkbi5rYnMuY28ua3Iva2JzbmtpZHMtMDIvKiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MjAzNzgwM319fV19&Key-Pair-Id=APKAICDSGT3Y7IXGJ3TA&Signature=ghwlWd5PYqD5YXBya8LkjWNWLBA0Vvanuz8WBLm0mfZk~MpE3Sh1eU17zM0Nt6lk-78MCF~YLm~cX4VgBkFoa0xUTVwg0e950tky9kUul27bqNB99O87ETNIB5g8YhphELIVEWFvMjohM1dYt15Y6NlRrNBmrGiVN22PnTr4~GJo5UYSQ60sNKorc1yN26JcJY1J8Ves37Z7IIgk5DtTWDHuiraRBhv4jXqzoL04t9BKtM12Y3IiJXge~q1rrgycaww3sCzpsatKbJ4ac06QeC-cx43n3d~i7h2vpmKx6mruvy1KsY-qkkamYKzd5uu4GaHWw4V6YZBbT4X5TPigSw__
-대전 KBS1,http://youtv.dothome.co.kr/ch/public/11.php
-광주 KBS1,http://youtv.dothome.co.kr/ch/public/12.php
-대구 KBS1,http://youtv.dothome.co.kr/ch/public/13.php
-울산 KBS1,http://youtv.dothome.co.kr/ch/public/14.php
-부산 KBS1,http://youtv.dothome.co.kr/ch/public/15.php
-SBS,https://vod.ikbc.co.kr/KBCTV/tv/playlist.m3u8
+
+대전 KBS1,http://www.hwado.net/webtv/public/11_087155E9.php
+광주 KBS1,http://www.hwado.net/webtv/public/12_7066CF5A.php
+대구 KBS1,http://www.hwado.net/webtv/public/13_B4E209CA.php
+울산 KBS1,http://www.hwado.net/webtv/public/14_ECE1A251.php
+부산 KBS1,http://www.hwado.net/webtv/public/15_6B9253F0.php
+SBS,http://www.hwado.net/webtv/public/31_0B41417D.php
 CJB SBS,http://1.222.207.80:1935/live/cjbtv/playlist.m3u8
 MBC,https://ns1.tjmbc.co.kr/live/myStream.sdp/playlist.m3u8
-목포MBC,http://vod.mpmbc.co.kr:1935/live/encoder-tv/playlist.m3u8
+대전MBC,https://tistory1.daumcdn.net/tistory/2864485/skin/images/Public_5_35B40960.m3u8
 goodtv,http://mobliestream.c3tv.com:1935/live/goodtv.sdp/playlist.m3u8
 MBC충북,http://211.33.246.4:32954/cj_live/myStream.sdp/playlist.m3u8
-MBC강원,http://123.254.93.7:1935/tvlive/livestream2/playlist.m3u8
+
 JTBC,http://youtv.dothome.co.kr/ch/catv/51_469EE6CC.php
 JTBC SPORTS,http://www.hwado.net/webtv/catv/58.php
+
 MBC 아메리카,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_236_0B21695E.m3u8
 나는 자연인이다,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_262_03C4258B.m3u8
 백반기행,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_269_96C359FF.m3u8
 맛있는녀석들,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_235_DCEF4BAE.m3u8
 한국영화,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_224_DB653155.m3u8
 TV조선,http://onair.cdn.tvchosun.com/origin1/_definst_/tvchosun_s1/playlist.m3u8#https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_53_245B29EC.m3u8
-TV조선2,http://onair2.cdn.tvchosun.com/origin2/_definst_/tvchosun_s3/playlist.m3u8
+TV조선2,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_67_F8AD020B.m3u8#http://onair2.cdn.tvchosun.com/origin2/_definst_/tvchosun_s3/playlist.m3u8
 EBS1,http://ebsonairios.ebs.co.kr/groundwavetablet500k/tablet500k/groundwavetablet500k.m3u8
 EBS2,http://ebsonairios.ebs.co.kr/ebs2tablet500k/tablet500k/ebs2tablet500k.index.m3u8
 EBS1+,http://ebsonairios.ebs.co.kr/plus1tablet500k/tablet500k/plus1tablet500k.index.m3u8
@@ -41,7 +57,7 @@ EBS2+,http://ebsonairios.ebs.co.kr/plus2tablet500k/tablet500k/plus2tablet500k.in
 EBSE,http://ebsonairios.ebs.co.kr/plus3tablet500k/tablet500k/plus3tablet500k.index.m3u8
 EBS Kids,http://ebsonairios.ebs.co.kr/ebsutablet500k/_definst_/tablet500k/playlist.m3u8
 TBS,https://cdntv.tbs.seoul.kr/tbs/_definst_/tbs_tv_web_720.smil/playlist.m3u8#https://cdntv.tbs.seoul.kr/tbs/tbs_tv_web.smil/playlist.m3u8
-YTN 과학,http://youtv.dothome.co.kr/ch/catv/261.php
+
 인천BTV,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_415_3B0A4DFF.m3u8
 매일경제,http://vodmmf.mbn.co.kr/mmoney/smil:money.smil/chunklist_b440000.m3u8
 국회방송,http://115.71.58.247/live/_definst_/smil:natv_720p.smil/chunklist_w105203350_b1116401.m3u8#https://m.webcast.go.kr/live/_definst_/smil:natv_720p.smil/playlist.m3u8
