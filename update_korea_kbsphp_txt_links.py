@@ -101,7 +101,7 @@ def update_other_channels_links():
     更新其他频道的链接（JTBC）
     """
     other_channels = {
-        'JTBC': 'http://youtv.dothome.co.kr/ch/catv/51_469EE6CC.php',
+        'JTBC': 'http://www.hwado.net/webtv/catv/5006_F2AACF78.php',
     }
     
     updated_links = {}
