@@ -98,10 +98,11 @@ def update_regional_kbs_links():
 
 def update_other_channels_links():
     """
-    更新其他频道的链接（JTBC）
+    更新其他频道的链接（JTBC 和 SBS）
     """
     other_channels = {
         'JTBC': 'http://www.hwado.net/webtv/catv/5006_F2AACF78.php',
+        'SBS': 'http://www.hwado.net/webtv/public/31_0B41417D.php'  # 新增SBS频道
     }
     
     updated_links = {}
@@ -205,7 +206,7 @@ def update_kr_txt_file():
             new_line = f'{channel_part},{regional_links[channel_part]}'
             updated_lines.append(new_line)
             print(f'Updated {channel_part}: {regional_links[channel_part][:50]}...')
-        # 更新其他频道（JTBC等）
+        # 更新其他频道（JTBC、SBS等）
         elif channel_part in other_links:
             new_line = f'{channel_part},{other_links[channel_part]}'
             updated_lines.append(new_line)
@@ -246,7 +247,7 @@ def update_kr_txt_file():
         if other_links:
             other_success = sum(1 for link in other_links.values() if not link.endswith('.php'))
             other_total = len(other_links)
-            print(f'其他频道更新统计: {other_success}/{other_total} 个频道成功获取直播链接')
+            print(f'其他频道(JTBC、SBS)更新统计: {other_success}/{other_total} 个频道成功获取直播链接')
             
     except Exception as e:
         print(f'Error writing kr.txt: {str(e)}')
