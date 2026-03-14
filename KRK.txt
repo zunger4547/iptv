@@ -1,9 +1,0 @@
-KBS1,https://1
-KBS2,https://2
-KBS World,https://world.gscdn.kbs.co.kr
-KBS News D,https://news24.gscdn.kbs.co.kr/
-KBS Drama,https://kbsndrama.gscdn.kbs.co.kr/
-KBS Joy,https://kbsnjoy.gscdn.kbs.co.kr
-KBS Life,https://kbsnlife.gscdn.kbs.co.kr/
-KBS Story,https://kbsnw.gscdn.kbs.co.kr/
-KBS Kid,https://kbsnkids.gscdn.kbs.co.kr
