@@ -5,18 +5,8 @@ KTV,https://hlive.ktv.go.kr/live/klive_h.stream/playlist.m3u8
 연합뉴스경제,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_531_42BB044F.m3u8
 YTN,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_215_6B2BDBDE.m3u8
 서울경제,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_527_C6413288.m3u8
-kbs1,http://www.hwado.net/webtv/public/1_EA49B3B2.php
-kbs2,http://www.hwado.net/webtv/public/3_2C9275B7.php
-kbs news,http://www.hwado.net/webtv/catv/1_5FA37789.php
-kbs 드라마,http://www.hwado.net/webtv/catv/2_02F85E1F.php
-kbs Joy,http://www.hwado.net/webtv/catv/3_39C33D26.php
-kbs Story,http://www.hwado.net/webtv/catv/4_084D1308.php
-kbs Life,http://www.hwado.net/webtv/catv/5_606FFDED.php
-kbs Kid,http://www.hwado.net/webtv/catv/6_970B6159.php
-kbs world,http://www.hwado.net/webtv/catv/7_A9D3B425.php
-mbn,http://www.hwado.net/webtv/catv/54_3D17698E.php
-mbn뉴스,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_537_57A9460F.m3u8
 
+MBN News,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_537_57A9460F.m3u8
 MBN,https://hls-live.mbn.co.kr/mbn-on-air/600k/playlist.m3u8?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cCo6Ly9obHMtbGl2ZS5tYm4uY28ua3IvKiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzU4NDU1NH0sIklwQWRkcmVzcyI6eyJBV1M6U291cmNlSXAiOiIwLjAuMC4wLzAifX19XX0_&Signature=YvT8frdbjthZ1vrdfsuHPwxPZeY1BxKiSwTHbMbjvl-JjU9UVKfJLZOYrMuI1agta3IF9p0zUvvQTAOkVFK~e3~QNwmOr0~1vxTxKbXiU4uJSZnF-uoM7DJ2axBrtCqCSch1Z47Uvhx0O~o0Ts6LLtj3O9LEmvzdmbNwX9kLcGY_&Key-Pair-Id=pub_hls-live.mbn.co.kr
 KBS1,https://1tv.gscdn.kbs.co.kr/1tv_3.m3u8?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly8xdHYuZ3NjZG4ua2JzLmNvLmtyLyoiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3NzM2NzA4NjZ9fX1dfQ__&Key-Pair-Id=APKAICDSGT3Y7IXGJ3TA&Signature=QSRw4S-afIX5IGV9r-cmeq860m236ndTIdiG3e55eWX9e4QcoO7TsrK2l2MAE8sBm1yQo65Fd6a-~c3CYb4CWK2V~XLvCgrrvVNIKogyuedomS6uWH52ns7cMrADu~5ZTNirQOZhkjYTGbLL1rU5SPrHtIVCe4DWsVWLixHYwLH0yfw0w7EQhH9D5LRJLHUkAOU3t0LdaXl~cT7NFsnmv-JQb3B9zB4un5nWayXdMlEdl4yJ4m3P5mda2nuoSVz6uyLfb1mibf-MWhNH7NLH3ALMbtvPpLRkLrVr4sIjVj9knNoGxB5bahJqSIqoiBbYsHtZUG9PNyn1DpJt9am0ng__
 KBS2,https://2tv.gscdn.kbs.co.kr/2tv_1.m3u8?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly8ydHYuZ3NjZG4ua2JzLmNvLmtyLyoiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3NzM2NzA4ODJ9fX1dfQ__&Key-Pair-Id=APKAICDSGT3Y7IXGJ3TA&Signature=l2XjWQ9yyw-qZ~cy1nUYnOAaRPPEgic4mht2jnUuBd-ZMvHtZAG7o8o-etzxgOWkr4KXE-azyTJHWDwFOpnDgGxdZbQnT5Y7-yYp9ERMIGxdWKbGr~nvdOFhvj4aTkzsnLvHkxF2V5uUtq1st4yf8U8uajDsAfvXp~IchDmkSQsyeigblfjA5d8j39J7HEjBId7~zldi6jymuI9kqfLqNZJR7rzGPt625xqFd~vY3ihH9GTtRiM3fWkHXdOPyBDOLZkcNSwiP0awwdTH8aQG7WkEuKNovHg544g5yWpkJpg-risza34xjhnaOhsc-mFCvQyIJJhSqFw8IFXhf4uXYQ__
