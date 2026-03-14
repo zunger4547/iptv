@@ -1,0 +1,9 @@
+KBS1,http://www.hwado.net/webtv/public/1_EA49B3B2.php
+KBS2,http://www.hwado.net/webtv/public/3_2C9275B7.php
+KBS News,http://www.hwado.net/webtv/catv/1_5FA37789.php
+KBS Drama,http://www.hwado.net/webtv/catv/2_02F85E1F.php
+KBS Joy,http://www.hwado.net/webtv/catv/3_39C33D26.php
+KBS Story,http://www.hwado.net/webtv/catv/4_084D1308.php
+KBS Life,http://www.hwado.net/webtv/catv/5_606FFDED.php
+KBS Kid,http://www.hwado.net/webtv/catv/6_970B6159.php
+KBS world,http://www.hwado.net/webtv/catv/7_A9D3B425.php
