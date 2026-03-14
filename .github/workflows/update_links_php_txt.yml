@@ -25,8 +25,29 @@ jobs:
         python -m pip install --upgrade pip
         pip install requests
     
-    - name: Run update script
-      run: python update_korea_kbsphp_txt_links.py
+    - name: Run first update script (KBS PHP TXT Links)
+      id: script1
+      run: |
+        echo "运行第一个更新脚本: update_korea_kbsphp_txt_links.py"
+        python update_korea_kbsphp_txt_links.py
+        echo "script1_status=$?" >> $GITHUB_OUTPUT
+    
+    - name: Run second update script (Korea Links)
+      id: script2
+      run: |
+        echo "运行第二个更新脚本: update_korea_links.py"
+        python update_korea_links.py
+        echo "script2_status=$?" >> $GITHUB_OUTPUT
+    
+    - name: Check scripts execution status
+      run: |
+        echo "脚本1执行状态: ${{ steps.script1.outputs.script1_status }}"
+        echo "脚本2执行状态: ${{ steps.script2.outputs.script2_status }}"
+        if [ "${{ steps.script1.outputs.script1_status }}" != "0" ] || [ "${{ steps.script2.outputs.script2_status }}" != "0" ]; then
+          echo "警告: 部分脚本执行失败"
+        else
+          echo "所有脚本执行成功"
+        fi
     
     - name: Commit and push if changed
       id: commit
