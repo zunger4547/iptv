@@ -35,8 +35,8 @@ jobs:
     - name: Run second update script (Korea Links)
       id: script2
       run: |
-        echo "运行第二个更新脚本: update_korea_links.py"
-        python update_korea_links.py
+        echo "运行第二个更新脚本: update_KRK_txt_links.py"
+        python update_KRK_txt_links.py
         echo "script2_status=$?" >> $GITHUB_OUTPUT
     
     - name: Check scripts execution status
