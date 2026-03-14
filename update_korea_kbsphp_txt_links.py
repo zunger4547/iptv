@@ -16,7 +16,7 @@ def get_live_url_from_php(php_url):
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
             'Accept': '*/*',
             'Accept-Language': 'ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7',
-            'Referer': 'http://youtv.dothome.co.kr/',
+            'Referer': 'http://www.hwado.net/',
             'Connection': 'keep-alive'
         }
         
@@ -73,14 +73,14 @@ def get_live_url_from_php(php_url):
 
 def update_regional_kbs_links():
     """
-    更新地区性KBS频道的链接
+    更新地区性KBS频道的链接（使用新的hwado.net地址）
     """
     regional_channels = {
-        '대전 KBS1': 'http://youtv.dothome.co.kr/ch/public/11.php',
-        '광주 KBS1': 'http://youtv.dothome.co.kr/ch/public/12.php', 
-        '대구 KBS1': 'http://youtv.dothome.co.kr/ch/public/13.php',
-        '울산 KBS1': 'http://youtv.dothome.co.kr/ch/public/14.php',
-        '부산 KBS1': 'http://youtv.dothome.co.kr/ch/public/15.php'
+        '대전 KBS1': 'http://www.hwado.net/webtv/public/11_087155E9.php',
+        '광주 KBS1': 'http://www.hwado.net/webtv/public/12_7066CF5A.php',
+        '대구 KBS1': 'http://www.hwado.net/webtv/public/13_B4E209CA.php',
+        '울산 KBS1': 'http://www.hwado.net/webtv/public/14_ECE1A251.php',
+        '부산 KBS1': 'http://www.hwado.net/webtv/public/15_6B9253F0.php'
     }
     
     updated_links = {}
@@ -118,81 +118,40 @@ def update_other_channels_links():
     return updated_links
 
 def update_kbs_links():
-    # 定义所有KBS频道及其对应的channel_code
+    """
+    更新KBS官方频道（现在全部通过hwado.net的PHP地址获取）
+    """
     kbs_channels = {
-        'KBS1': '11',
-        'KBS2': '12', 
-        'KBS World': '14',
-        'KBS News D': '81',
-        'KBS Drama': 'N91',
-        'KBS Joy': 'N92',
-        'KBS Life': 'N93',
-        'KBS Story': 'N94',
-        'KBS Kid': 'N96'
+        'KBS1': 'http://www.hwado.net/webtv/public/1_EA49B3B2.php',
+        'KBS2': 'http://www.hwado.net/webtv/public/3_2C9275B7.php',
+        'KBS News': 'http://www.hwado.net/webtv/catv/1_5FA37789.php',
+        'KBS Drama': 'http://www.hwado.net/webtv/catv/2_02F85E1F.php',
+        'KBS Joy': 'http://www.hwado.net/webtv/catv/3_39C33D26.php',
+        'KBS Story': 'http://www.hwado.net/webtv/catv/4_084D1308.php',
+        'KBS Life': 'http://www.hwado.net/webtv/catv/5_606FFDED.php',
+        'KBS Kid': 'http://www.hwado.net/webtv/catv/6_970B6159.php',
+        'KBS World': 'http://www.hwado.net/webtv/catv/7_A9D3B425.php'
     }
     
-    kbs_links = {channel: '' for channel in kbs_channels.keys()}
+    kbs_links = {}
     
-    try:
-        # 使用与PHP代码更接近的请求头
-        headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-            'Accept': '*/*',
-            'Accept-Language': 'ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7',
-            'Accept-Encoding': 'gzip, deflate, br',
-            'Connection': 'keep-alive',
-            'Sec-Fetch-Dest': 'empty',
-            'Sec-Fetch-Mode': 'cors',
-            'Sec-Fetch-Site': 'same-site',
-            'Cache-Control': 'no-cache',
-            'Pragma': 'no-cache'
-        }
-
-        session = requests.Session()
-        session.headers.update(headers)
-
-        # 遍历所有KBS频道获取链接
-        for channel_name, channel_code in kbs_channels.items():
-            auth_url = f'https://cfpwwwapi.kbs.co.kr/api/v1/landing/live/channel_code/{channel_code}'
-            
-            try:
-                response = session.get(auth_url, headers=headers, verify=False, timeout=10)
-                print(f"{channel_name} 请求状态: {response.status_code}")
-                
-                if response.status_code == 200:
-                    print(f"{channel_name} 响应内容: {response.text[:200]}")  # 调试输出
-                    try:
-                        data = response.json()
-                        if 'channel_item' in data and len(data['channel_item']) > 0:
-                            kbs_links[channel_name] = data['channel_item'][0]['service_url']
-                            print(f"{channel_name} 获取成功: {kbs_links[channel_name]}")
-                        else:
-                            print(f"{channel_name} channel_item 为空或不存在")
-                    except json.JSONDecodeError as e:
-                        print(f"{channel_name} JSON解析失败: {e}")
-                        # 尝试使用正则表达式提取（像PHP代码那样）
-                        match = re.search(r'"service_url":"(.*?)"', response.text)
-                        if match:
-                            kbs_links[channel_name] = match.group(1)
-                            print(f"{channel_name} 正则提取成功: {kbs_links[channel_name]}")
-                else:
-                    print(f"{channel_name} 请求失败: {response.status_code}")
-                    
-            except Exception as e:
-                print(f"{channel_name} 请求异常: {str(e)}")
-                continue
-
-        return kbs_links
-        
-    except Exception as e:
-        print(f'Error updating KBS links: {str(e)}')
-        return None
+    for channel_name, php_url in kbs_channels.items():
+        print(f"正在处理 {channel_name}...")
+        live_url = get_live_url_from_php(php_url)
+        if live_url:
+            kbs_links[channel_name] = live_url
+        else:
+            # 如果无法获取新链接，保持原PHP链接
+            kbs_links[channel_name] = php_url
+    
+    return kbs_links
 
 def update_mbn_link():
     try:
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-            'Accept': '*/*'
+            'Accept': '*/*',
+            'Referer': 'http://www.hwado.net/'
         }
         auth_url = "https://www.mbn.co.kr/player/mbnStreamAuth_new_live.mbn?vod_url=https://hls-live.mbn.co.kr/mbn-on-air/600k/playlist.m3u8"
         response = requests.get(auth_url, headers=headers, verify=False, timeout=10)
@@ -236,21 +195,21 @@ def update_kr_txt_file():
             channel_part = line.strip()
             url_part = ''
         
-        # 更新其他频道（JTBC）
-        if channel_part in other_links:
-            new_line = f'{channel_part},{other_links[channel_part]}'
+        # 更新KBS官方频道
+        if kbs_links and channel_part in kbs_links:
+            new_line = f'{channel_part},{kbs_links[channel_part]}'
             updated_lines.append(new_line)
-            print(f'Updated {channel_part}: {other_links[channel_part][:50]}...')
+            print(f'Updated {channel_part}: {kbs_links[channel_part][:50]}...')
         # 更新地区性KBS频道
         elif channel_part in regional_links:
             new_line = f'{channel_part},{regional_links[channel_part]}'
             updated_lines.append(new_line)
             print(f'Updated {channel_part}: {regional_links[channel_part][:50]}...')
-        # 更新普通KBS频道
-        elif kbs_links and channel_part in kbs_links and kbs_links[channel_part]:
-            new_line = f'{channel_part},{kbs_links[channel_part]}'
+        # 更新其他频道（JTBC等）
+        elif channel_part in other_links:
+            new_line = f'{channel_part},{other_links[channel_part]}'
             updated_lines.append(new_line)
-            print(f'Updated {channel_part}: {kbs_links[channel_part][:50]}...')
+            print(f'Updated {channel_part}: {other_links[channel_part][:50]}...')
         else:
             # 保持原行
             updated_lines.append(line)
@@ -275,9 +234,9 @@ def update_kr_txt_file():
         
         # 显示更新统计
         if kbs_links:
-            success_count = sum(1 for link in kbs_links.values() if link)
-            total_count = len(kbs_links)
-            print(f'KBS频道更新统计: {success_count}/{total_count} 个频道成功更新')
+            kbs_success = sum(1 for link in kbs_links.values() if not link.endswith('.php'))
+            kbs_total = len(kbs_links)
+            print(f'KBS官方频道更新统计: {kbs_success}/{kbs_total} 个频道成功获取直播链接')
         
         if regional_links:
             regional_success = sum(1 for link in regional_links.values() if not link.endswith('.php'))
