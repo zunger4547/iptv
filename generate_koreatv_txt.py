@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-从 koreatv.json 读取频道信息，提取 name 和 uris，更新 Korea.txt 中的"新韩国电视"分组
+从 koreatv.json 读取频道信息，提取 name 和 uris，更新 kr.txt 中的"新韩国电视"分组
 保留原有的"原韩国电视"分组内容不变
 """
 
@@ -79,9 +79,9 @@ def extract_name_uris_from_json(data):
     
     return channels, skipped
 
-def parse_korea_file(file_path):
+def parse_kr_file(file_path):
     """
-    解析现有的 Korea.txt 文件
+    解析现有的 kr.txt 文件
     返回分组字典，键为分组名，值为该分组下的频道列表
     """
     groups = {}
@@ -117,13 +117,14 @@ def parse_korea_file(file_path):
         print(f"❌ 读取文件失败：{e}")
         return groups
 
-def write_korea_file(file_path, groups):
+def write_kr_file(file_path, groups):
     """
-    将分组字典写回 Korea.txt 文件
+    将分组字典写回 kr.txt 文件
     """
     try:
         with open(file_path, 'w', encoding='utf-8') as f:
-            for group_name, channels in groups.items():
+            group_count = len(groups)
+            for idx, (group_name, channels) in enumerate(groups.items(), 1):
                 # 写入分组标题
                 f.write(f"{group_name},#genre#\n")
                 
@@ -132,7 +133,8 @@ def write_korea_file(file_path, groups):
                     f.write(f"{channel}\n")
                 
                 # 分组之间加空行（除了最后一个分组）
-                f.write("\n")
+                if idx < group_count:
+                    f.write("\n")
         
         return True
     except Exception as e:
@@ -142,13 +144,13 @@ def write_korea_file(file_path, groups):
 def main():
     """主函数"""
     print("=" * 60)
-    print("🔍 开始处理 koreatv.json 并更新 Korea.txt...")
+    print("🔍 开始处理 koreatv.json 并更新 kr.txt...")
     print("=" * 60)
     
     # 获取脚本所在目录
     script_dir = Path(__file__).parent.absolute()
     input_file = script_dir / 'koreatv.json'
-    output_file = script_dir / 'Korea.txt'
+    output_file = script_dir / 'kr.txt'  # 修改为 kr.txt
     
     print(f"📂 JSON 文件: {input_file}")
     print(f"📂 TXT 文件: {output_file}")
@@ -180,8 +182,8 @@ def main():
     print(f"   - 跳过无效: {skipped}")
     print("-" * 60)
     
-    # 解析现有的 Korea.txt 文件
-    groups = parse_korea_file(output_file)
+    # 解析现有的 kr.txt 文件
+    groups = parse_kr_file(output_file)
     
     # 更新"新韩国电视"分组
     target_group = "新韩国电视"
@@ -189,12 +191,20 @@ def main():
     
     print(f"✅ 已更新分组 '{target_group}'，共 {len(new_channels)} 个频道")
     
+    # 确保分组顺序：新韩国电视在前，原韩国电视在后（如果有的话）
+    ordered_groups = {}
+    if "新韩国电视" in groups:
+        ordered_groups["新韩国电视"] = groups["新韩国电视"]
+    for name, channels in groups.items():
+        if name != "新韩国电视":
+            ordered_groups[name] = channels
+    
     # 写回文件
-    if write_korea_file(output_file, groups):
+    if write_kr_file(output_file, ordered_groups):
         print("-" * 60)
         print(f"✅ 成功更新文件：{output_file}")
-        print(f"📊 最终文件包含 {len(groups)} 个分组：")
-        for group_name, channels in groups.items():
+        print(f"📊 最终文件包含 {len(ordered_groups)} 个分组：")
+        for group_name, channels in ordered_groups.items():
             print(f"   - {group_name}: {len(channels)} 个频道")
         
         # 显示新分组的前几行作为预览
