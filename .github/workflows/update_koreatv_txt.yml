@@ -1,0 +1,113 @@
+name: Update Korea.txt from JSON
+
+on:
+  push:
+    paths:
+      - 'koreatv.json'      # 当 koreatv.json 更新时运行
+      - 'generate_koreatv_txt.py'  # 或当脚本本身更新时
+  schedule:
+    # 每天运行两次作为备份（北京时间 3:00 和 15:00）
+    - cron: '0 19 * * *'    # UTC 19:00 = 北京时间 03:00
+    - cron: '0 7 * * *'     # UTC 07:00 = 北京时间 15:00
+  workflow_dispatch:        # 允许手动触发
+
+jobs:
+  generate-file:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # 允许推送到仓库
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Check if koreatv.json exists
+        id: check_file
+        run: |
+          if [ -f "koreatv.json" ]; then
+            echo "✅ 找到 koreatv.json"
+            echo "exists=true" >> $GITHUB_OUTPUT
+            echo "size=$(wc -c < koreatv.json)" >> $GITHUB_OUTPUT
+          else
+            echo "❌ koreatv.json 不存在"
+            echo "exists=false" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Generate Korea.txt
+        if: steps.check_file.outputs.exists == 'true'
+        id: generate
+        run: |
+          python generate_korea_txt.py
+          
+          # 检查生成的文件
+          if [ -f "Korea.txt" ] && [ -s "Korea.txt" ]; then
+            echo "created=true" >> $GITHUB_OUTPUT
+            echo "lines=$(wc -l < Korea.txt)" >> $GITHUB_OUTPUT
+          else
+            echo "created=false" >> $GITHUB_OUTPUT
+            exit 1
+          fi
+      
+      - name: Commit and push changes
+        if: steps.generate.outputs.created == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # 检查是否有变化
+          git add Korea.txt
+          if git diff --staged --quiet; then
+            echo "ℹ️ Korea.txt 没有变化，无需提交"
+          else
+            git commit -m "📺 自动更新 Korea.txt [$(date +'%Y-%m-%d %H:%M:%S')]"
+            git push
+            echo "✅ 已提交更新"
+          fi
+      
+      - name: Upload Korea.txt as artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: korea-channel-list
+          path: Korea.txt
+          retention-days: 7
+      
+      - name: Generate summary
+        if: always()
+        run: |
+          echo "## 📺 Korea.txt 生成结果" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ "${{ steps.check_file.outputs.exists }}" == "true" ]; then
+            echo "### ✅ 源文件信息" >> $GITHUB_STEP_SUMMARY
+            echo "- **文件**: koreatv.json" >> $GITHUB_STEP_SUMMARY
+            echo "- **大小**: ${{ steps.check_file.outputs.size }} 字节" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            
+            if [ "${{ steps.generate.outputs.created }}" == "true" ]; then
+              echo "### ✅ 生成成功" >> $GITHUB_STEP_SUMMARY
+              echo "- **输出文件**: Korea.txt" >> $GITHUB_STEP_SUMMARY
+              echo "- **频道数量**: ${{ steps.generate.outputs.lines }} 个" >> $GITHUB_STEP_SUMMARY
+              echo "- **文件大小**: $(du -h Korea.txt | cut -f1)" >> $GITHUB_STEP_SUMMARY
+              
+              # 显示前几个频道作为预览
+              echo "" >> $GITHUB_STEP_SUMMARY
+              echo "### 📋 频道预览（前5个）" >> $GITHUB_STEP_SUMMARY
+              echo '```' >> $GITHUB_STEP_SUMMARY
+              head -5 Korea.txt >> $GITHUB_STEP_SUMMARY
+              echo '```' >> $GITHUB_STEP_SUMMARY
+            else
+              echo "### ❌ 生成失败" >> $GITHUB_STEP_SUMMARY
+              echo "请检查Python脚本执行日志" >> $GITHUB_STEP_SUMMARY
+            fi
+          else
+            echo "### ❌ 错误" >> $GITHUB_STEP_SUMMARY
+            echo "找不到 koreatv.json 文件" >> $GITHUB_STEP_SUMMARY
+          fi
