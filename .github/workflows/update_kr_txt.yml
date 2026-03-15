@@ -1,21 +1,32 @@
 name: Update kr.txt from JSON
 
 on:
-  push:
-    paths:
-      - 'koreatv.json'              # 当 koreatv.json 更新时运行
-      - 'generate_koreatv_txt.py'   # 或当脚本本身更新时
+  # 当 Sync koreatv.json from kenpark76 工作流成功完成时触发
+  workflow_run:
+    workflows: ["Sync koreatv.json from kenpark76"]  # 监听指定的工作流
+    types:
+      - completed  # 当工作流完成时触发
+    branches: [main]
+  
+  # 保留手动触发，方便测试
+  workflow_dispatch:
+  
+  # 也保留定时触发作为备份（每天2次）
   schedule:
-    # 每天运行两次作为备份（北京时间 3:00 和 15:00）
     - cron: '0 19 * * *'    # UTC 19:00 = 北京时间 03:00
     - cron: '0 7 * * *'     # UTC 07:00 = 北京时间 15:00
-  workflow_dispatch:        # 允许手动触发
 
 jobs:
   generate-file:
     runs-on: ubuntu-latest
     permissions:
       contents: write  # 允许推送到仓库
+    
+    # 添加执行条件：只有被监听的工作流成功完成时才执行
+    if: |
+      github.event_name == 'workflow_dispatch' ||
+      github.event_name == 'schedule' ||
+      (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success')
     
     steps:
       - name: Checkout repository
@@ -27,6 +38,11 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      
+      # 当通过 workflow_run 触发时，添加短暂延迟确保文件完全写入
+      - name: Wait for 10 seconds on workflow_run
+        if: github.event_name == 'workflow_run'
+        run: sleep 10
       
       - name: Check if koreatv.json exists
         id: check_file
@@ -63,6 +79,16 @@ jobs:
             echo "ℹ️ kr.txt 不存在，将创建新文件"
             echo "exists=false" >> $GITHUB_OUTPUT
           fi
+      
+      - name: Display triggering workflow info (for debugging)
+        if: github.event_name == 'workflow_run'
+        run: |
+          echo "🔍 被工作流触发："
+          echo "   - 工作流名称: ${{ github.event.workflow_run.name }}"
+          echo "   - 工作流状态: ${{ github.event.workflow_run.conclusion }}"
+          echo "   - 触发分支: ${{ github.event.workflow_run.head_branch }}"
+          echo "   - 提交SHA: ${{ github.event.workflow_run.head_sha }}"
+          echo "   - 运行ID: ${{ github.event.workflow_run.id }}"
       
       - name: Generate/Update kr.txt
         if: steps.check_file.outputs.exists == 'true' && steps.check_script.outputs.exists == 'true'
@@ -107,6 +133,15 @@ jobs:
         if: always()
         run: |
           echo "## 📺 kr.txt 更新结果" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          # 显示触发方式
+          echo "### 🔄 触发信息" >> $GITHUB_STEP_SUMMARY
+          echo "- **触发方式**: ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ github.event_name }}" == "workflow_run" ]; then
+            echo "- **触发工作流**: Sync koreatv.json from kenpark76" >> $GITHUB_STEP_SUMMARY
+            echo "- **工作流状态**: ${{ github.event.workflow_run.conclusion }}" >> $GITHUB_STEP_SUMMARY
+          fi
           echo "" >> $GITHUB_STEP_SUMMARY
           
           if [ "${{ steps.check_file.outputs.exists }}" == "true" ]; then
