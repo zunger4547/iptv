@@ -1,0 +1,102 @@
+name: Sync koreatv.json from kenpark76
+
+on:
+  schedule:
+    # 每小时的第10分钟运行一次 (UTC时间)
+    # 注意：GitHub Actions 使用的是 UTC 时间
+    # 例如：UTC 1:10, 2:10, 3:10... 对应北京时间 9:10, 10:10, 11:10...
+    - cron: '10 * * * *'
+  workflow_dispatch:  # 允许手动触发，方便测试
+
+jobs:
+  sync-file:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # 允许推送代码到仓库
+    
+    steps:
+      - name: Checkout your repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          # 设置 git 用户信息，用于提交
+          fetch-depth: 1
+
+      - name: Download file from upstream
+        run: |
+          echo "正在从 kenpark76.github.io 下载 koreatv.json..."
+          
+          # 创建临时目录
+          mkdir -p temp_download
+          
+          # 下载文件
+          curl -L -o temp_download/koreatv.json https://raw.githubusercontent.com/kenpark76/kenpark76.github.io/main/koreatv.json
+          
+          # 检查下载是否成功
+          if [ ! -f temp_download/koreatv.json ]; then
+            echo "❌ 文件下载失败"
+            exit 1
+          fi
+          
+          echo "✅ 文件下载成功"
+          
+          # 显示文件大小（用于调试）
+          ls -lh temp_download/koreatv.json
+
+      - name: Check if file changed
+        id: check_diff
+        run: |
+          # 如果目标文件不存在，或者与下载的文件不同，则需要更新
+          if [ ! -f koreatv.json ]; then
+            echo "本地文件不存在，需要创建"
+            echo "changed=true" >> $GITHUB_OUTPUT
+          else
+            # 比较文件差异
+            if diff -q temp_download/koreatv.json koreatv.json > /dev/null; then
+              echo "文件没有变化，无需更新"
+              echo "changed=false" >> $GITHUB_OUTPUT
+            else
+              echo "文件有变化，需要更新"
+              echo "changed=true" >> $GITHUB_OUTPUT
+            fi
+          fi
+
+      - name: Copy and commit updated file
+        if: steps.check_diff.outputs.changed == 'true'
+        run: |
+          # 复制下载的文件到仓库根目录
+          cp temp_download/koreatv.json ./koreatv.json
+          
+          # 配置 git 用户（使用 github-actions bot 的默认信息）
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # 添加文件到暂存区
+          git add koreatv.json
+          
+          # 提交更改
+          git commit -m "🔄 自动更新 koreatv.json 来自 kenpark76/koreatv.json [$(date +'%Y-%m-%d %H:%M:%S')]"
+          
+          # 推送到仓库
+          git push origin HEAD:${GITHUB_REF#refs/heads/}
+          
+          echo "✅ 文件已更新并推送"
+
+      - name: Clean up
+        if: always()
+        run: |
+          # 删除临时目录
+          rm -rf temp_download
+          echo "🧹 临时文件已清理"
+
+      - name: 同步结果摘要
+        if: always()
+        run: |
+          echo "## 📊 同步结果" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ steps.check_diff.outputs.changed }}" == "true" ]; then
+            echo "✅ **koreatv.json 已更新**" >> $GITHUB_STEP_SUMMARY
+            echo "- 更新时间：$(date +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+            echo "- 来源：kenpark76/kenpark76.github.io" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "ℹ️ **koreatv.json 无需更新**（与原文件一致）" >> $GITHUB_STEP_SUMMARY
+          fi
