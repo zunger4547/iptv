@@ -5,7 +5,7 @@ on:
     branches: [ main ]
   workflow_dispatch: # 允许手动触发
   workflow_run:
-    workflows: ["Update Korea Links"]  # 监听指定工作流
+    workflows: ["Update kr.txt from JSON"]  # 监听指定工作流
     types:
       - completed  # 当工作流完成时触发
     branches: [main]
