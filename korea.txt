@@ -1,1 +1,0 @@
-KCTV,https://tv.intchoson.com/kctv/index.m3u8
