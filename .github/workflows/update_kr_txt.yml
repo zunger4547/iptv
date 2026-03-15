@@ -1,4 +1,4 @@
-name: Update Korea.txt from JSON
+name: Update kr.txt from JSON
 
 on:
   push:
@@ -51,29 +51,29 @@ jobs:
             echo "exists=false" >> $GITHUB_OUTPUT
           fi
       
-      - name: Check if Korea.txt exists
+      - name: Check if kr.txt exists
         id: check_output_file
         run: |
-          if [ -f "Korea.txt" ]; then
-            echo "✅ 找到现有的 Korea.txt"
+          if [ -f "kr.txt" ]; then
+            echo "✅ 找到现有的 kr.txt"
             echo "exists=true" >> $GITHUB_OUTPUT
-            echo "size=$(wc -c < Korea.txt)" >> $GITHUB_OUTPUT
-            echo "lines=$(wc -l < Korea.txt)" >> $GITHUB_OUTPUT
+            echo "size=$(wc -c < kr.txt)" >> $GITHUB_OUTPUT
+            echo "lines=$(wc -l < kr.txt)" >> $GITHUB_OUTPUT
           else
-            echo "ℹ️ Korea.txt 不存在，将创建新文件"
+            echo "ℹ️ kr.txt 不存在，将创建新文件"
             echo "exists=false" >> $GITHUB_OUTPUT
           fi
       
-      - name: Generate/Update Korea.txt
+      - name: Generate/Update kr.txt
         if: steps.check_file.outputs.exists == 'true' && steps.check_script.outputs.exists == 'true'
         id: generate
         run: |
           python generate_koreatv_txt.py
           
           # 检查生成的文件
-          if [ -f "Korea.txt" ] && [ -s "Korea.txt" ]; then
+          if [ -f "kr.txt" ] && [ -s "kr.txt" ]; then
             echo "created=true" >> $GITHUB_OUTPUT
-            echo "lines=$(wc -l < Korea.txt)" >> $GITHUB_OUTPUT
+            echo "lines=$(wc -l < kr.txt)" >> $GITHUB_OUTPUT
           else
             echo "created=false" >> $GITHUB_OUTPUT
             exit 1
@@ -86,27 +86,27 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           
           # 检查是否有变化
-          git add Korea.txt
+          git add kr.txt
           if git diff --staged --quiet; then
-            echo "ℹ️ Korea.txt 没有变化，无需提交"
+            echo "ℹ️ kr.txt 没有变化，无需提交"
           else
-            git commit -m "📺 自动更新 Korea.txt 中的'新韩国电视'分组 [$(date +'%Y-%m-%d %H:%M:%S')]"
+            git commit -m "📺 自动更新 kr.txt 中的'新韩国电视'分组 [$(date +'%Y-%m-%d %H:%M:%S')]"
             git push
             echo "✅ 已提交更新"
           fi
       
-      - name: Upload Korea.txt as artifact
+      - name: Upload kr.txt as artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: korea-channel-list
-          path: Korea.txt
+          name: kr-channel-list
+          path: kr.txt
           retention-days: 7
       
       - name: Generate summary
         if: always()
         run: |
-          echo "## 📺 Korea.txt 更新结果" >> $GITHUB_STEP_SUMMARY
+          echo "## 📺 kr.txt 更新结果" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           
           if [ "${{ steps.check_file.outputs.exists }}" == "true" ]; then
@@ -116,7 +116,7 @@ jobs:
             echo "" >> $GITHUB_STEP_SUMMARY
             
             if [ "${{ steps.check_output_file.outputs.exists }}" == "true" ]; then
-              echo "### 📄 原Korea.txt信息" >> $GITHUB_STEP_SUMMARY
+              echo "### 📄 原kr.txt信息" >> $GITHUB_STEP_SUMMARY
               echo "- **大小**: ${{ steps.check_output_file.outputs.size }} 字节" >> $GITHUB_STEP_SUMMARY
               echo "- **行数**: ${{ steps.check_output_file.outputs.lines }}" >> $GITHUB_STEP_SUMMARY
               echo "" >> $GITHUB_STEP_SUMMARY
@@ -124,9 +124,9 @@ jobs:
             
             if [ "${{ steps.generate.outputs.created }}" == "true" ]; then
               echo "### ✅ 更新成功" >> $GITHUB_STEP_SUMMARY
-              echo "- **输出文件**: Korea.txt" >> $GITHUB_STEP_SUMMARY
+              echo "- **输出文件**: kr.txt" >> $GITHUB_STEP_SUMMARY
               echo "- **总行数**: ${{ steps.generate.outputs.lines }}" >> $GITHUB_STEP_SUMMARY
-              echo "- **文件大小**: $(du -h Korea.txt | cut -f1)" >> $GITHUB_STEP_SUMMARY
+              echo "- **文件大小**: $(du -h kr.txt | cut -f1)" >> $GITHUB_STEP_SUMMARY
               echo "- **更新内容**: '新韩国电视' 分组已从koreatv.json更新" >> $GITHUB_STEP_SUMMARY
               
               # 显示新分组的前几个频道作为预览
@@ -134,7 +134,7 @@ jobs:
               echo "### 📋 '新韩国电视' 分组预览（前5个）" >> $GITHUB_STEP_SUMMARY
               echo '```' >> $GITHUB_STEP_SUMMARY
               # 提取"新韩国电视"分组的内容显示
-              awk '/^新韩国电视,#genre#$/{flag=1; next} /^$/{flag=0} flag && !/^#/' Korea.txt | head -5 >> $GITHUB_STEP_SUMMARY
+              awk '/^新韩国电视,#genre#$/{flag=1; next} /^$/{flag=0} flag && !/^#/' kr.txt | head -5 >> $GITHUB_STEP_SUMMARY
               echo '```' >> $GITHUB_STEP_SUMMARY
             else
               echo "### ❌ 生成失败" >> $GITHUB_STEP_SUMMARY
