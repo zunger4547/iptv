@@ -3,8 +3,8 @@ name: Update Korea.txt from JSON
 on:
   push:
     paths:
-      - 'koreatv.json'      # 当 koreatv.json 更新时运行
-      - 'generate_koreatv_txt.py'  # 或当脚本本身更新时
+      - 'koreatv.json'              # 当 koreatv.json 更新时运行
+      - 'generate_koreatv_txt.py'   # 或当脚本本身更新时（注意文件名已修改）
   schedule:
     # 每天运行两次作为备份（北京时间 3:00 和 15:00）
     - cron: '0 19 * * *'    # UTC 19:00 = 北京时间 03:00
@@ -40,11 +40,22 @@ jobs:
             echo "exists=false" >> $GITHUB_OUTPUT
           fi
       
+      - name: Check if Python script exists
+        id: check_script
+        run: |
+          if [ -f "generate_koreatv_txt.py" ]; then
+            echo "✅ 找到 generate_koreatv_txt.py"
+            echo "exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "❌ generate_koreatv_txt.py 不存在"
+            echo "exists=false" >> $GITHUB_OUTPUT
+          fi
+      
       - name: Generate Korea.txt
-        if: steps.check_file.outputs.exists == 'true'
+        if: steps.check_file.outputs.exists == 'true' && steps.check_script.outputs.exists == 'true'
         id: generate
         run: |
-          python generate_korea_txt.py
+          python generate_koreatv_txt.py
           
           # 检查生成的文件
           if [ -f "Korea.txt" ] && [ -s "Korea.txt" ]; then
@@ -110,4 +121,10 @@ jobs:
           else
             echo "### ❌ 错误" >> $GITHUB_STEP_SUMMARY
             echo "找不到 koreatv.json 文件" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          if [ "${{ steps.check_script.outputs.exists }}" == "false" ]; then
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "### ❌ 错误" >> $GITHUB_STEP_SUMMARY
+            echo "找不到 generate_koreatv_txt.py 文件" >> $GITHUB_STEP_SUMMARY
           fi
