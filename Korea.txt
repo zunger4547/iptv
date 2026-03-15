@@ -163,3 +163,46 @@ FAILARMY,https://failarmy-international-nl.samsung.wurl.tv/playlist.m3u8
 Drybarcomedy,https://drybar-drybarcomedy-1-ca.samsung.wurl.tv/playlist.m3u8
 
 原韩国电视,#genre#
+
+KCTV,https://tv.intchoson.com/kctv/index.m3u8
+KTV,https://hlive.ktv.go.kr/live/klive_h.stream/playlist.m3u8
+연합뉴스,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_216_AB271679.m3u8
+연합뉴스경제,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_531_42BB044F.m3u8
+YTN,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_215_6B2BDBDE.m3u8
+서울경제,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_527_C6413288.m3u8
+MBN News,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_537_57A9460F.m3u8
+
+CJB SBS,http://1.222.207.80:1935/live/cjbtv/playlist.m3u8
+MBC,https://ns1.tjmbc.co.kr/live/myStream.sdp/playlist.m3u8
+대전MBC,https://tistory1.daumcdn.net/tistory/2864485/skin/images/Public_5_35B40960.m3u8
+goodtv,http://mobliestream.c3tv.com:1935/live/goodtv.sdp/playlist.m3u8
+MBC충북,http://211.33.246.4:32954/cj_live/myStream.sdp/playlist.m3u8
+
+JTBC,https://onair.jtbc.co.kr
+JTBC SPORTS,http://www.hwado.net/webtv/catv/58.php
+
+MBC 아메리카,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_236_0B21695E.m3u8
+나는 자연인이다,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_262_03C4258B.m3u8
+백반기행,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_269_96C359FF.m3u8
+맛있는녀석들,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_235_DCEF4BAE.m3u8
+한국영화,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_224_DB653155.m3u8
+TV조선,http://onair.cdn.tvchosun.com/origin1/_definst_/tvchosun_s1/playlist.m3u8#https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_53_245B29EC.m3u8
+TV조선2,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_67_F8AD020B.m3u8#http://onair2.cdn.tvchosun.com/origin2/_definst_/tvchosun_s3/playlist.m3u8
+EBS1,http://ebsonairios.ebs.co.kr/groundwavetablet500k/tablet500k/groundwavetablet500k.m3u8
+EBS2,http://ebsonairios.ebs.co.kr/ebs2tablet500k/tablet500k/ebs2tablet500k.index.m3u8
+EBS1+,http://ebsonairios.ebs.co.kr/plus1tablet500k/tablet500k/plus1tablet500k.index.m3u8
+EBS2+,http://ebsonairios.ebs.co.kr/plus2tablet500k/tablet500k/plus2tablet500k.index.m3u8
+EBSE,http://ebsonairios.ebs.co.kr/plus3tablet500k/tablet500k/plus3tablet500k.index.m3u8
+EBS Kids,http://ebsonairios.ebs.co.kr/ebsutablet500k/_definst_/tablet500k/playlist.m3u8
+TBS,https://cdntv.tbs.seoul.kr/tbs/_definst_/tbs_tv_web_720.smil/playlist.m3u8#https://cdntv.tbs.seoul.kr/tbs/tbs_tv_web.smil/playlist.m3u8
+
+인천BTV,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_415_3B0A4DFF.m3u8
+매일경제,http://vodmmf.mbn.co.kr/mmoney/smil:money.smil/chunklist_b440000.m3u8
+국회방송,http://115.71.58.247/live/_definst_/smil:natv_720p.smil/chunklist_w105203350_b1116401.m3u8#https://m.webcast.go.kr/live/_definst_/smil:natv_720p.smil/playlist.m3u8
+산업방송 채널i,http://1.201.160.177:1935/live/myStream/playlist.m3u8
+scs서경방송,https://live.iscs.co.kr/m_live/480p.stream/playlist.m3u8
+지방자치,https://jjctv.ecn.cdn.infralab.net/jjctv/live/playlist.m3u8
+ABN,https://tistory1.daumcdn.net/tistory/2864485/skin/images/CATV_412.m3u8
+NBS,https://media.joycorp.co.kr:4443/live/live_720p/playlist.m3u8
+국방,http://mediaworks.dema.mil.kr:1935/live_edge/cudo.sdp/playlist.m3u8
+국악,http://mgugaklive.nowcdn.co.kr/gugakvideo/gugakvideo.stream/playlist.m3u8
