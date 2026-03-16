@@ -2,8 +2,8 @@ name: Sync koreatv.json from kenpark76
 
 on:
   schedule:
-    # 改为每小时的第20分钟运行，避开整点拥堵
-    - cron: '20 * * * *'
+    # 改为每小时的第5分钟运行，避开整点拥堵
+    - cron: '5 * * * *'
   workflow_dispatch:  # 保留手动触发
   push:
     paths:
